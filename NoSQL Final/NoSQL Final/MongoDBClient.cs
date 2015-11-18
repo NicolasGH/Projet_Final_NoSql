@@ -12,23 +12,20 @@ namespace NoSQL_Final
 {
     class MongoDBClient
     {
-        protected static IMongoClient _client;
-        protected static IMongoDatabase _database;
+        private MongoClient client;
+        protected static IMongoDatabase database;
 
-        public MongoDBClient()
+        public MongoDBClient(string _connectionURL)
         {
-            Console.WriteLine("Nicolas");
+            this.client  = new MongoClient(_connectionURL);
         }
 
-        public string InsertData(string uri, Stockobject obj)
+        public string InsertData(Stockobject obj)
         {
-            var connectingString = uri;
-
             try
             {
-                var _client = new MongoClient(connectingString);
-                _database = _client.GetDatabase("stockExchange");
-                var collection = _database.GetCollection<Stockobject>("stockCollection");
+                database = client.GetDatabase("stockExchange");
+                IMongoCollection<Stockobject> collection = database.GetCollection<Stockobject>("stockCollection");
                 collection.InsertOneAsync(obj);
                 return "element ajouté";
             }

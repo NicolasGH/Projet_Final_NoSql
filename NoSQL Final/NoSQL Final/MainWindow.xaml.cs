@@ -22,8 +22,8 @@ namespace NoSQL_Final
     {
         public MainWindow()
         {
-           // InitializeComponent();
-            MongoDBClient mdb = new MongoDBClient();
+            InitializeComponent();
+            MongoDBClient mdb = new MongoDBClient("uri not definied");
             Console.ReadLine();
         }
     }
