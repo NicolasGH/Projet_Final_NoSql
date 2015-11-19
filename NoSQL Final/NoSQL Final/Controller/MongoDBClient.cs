@@ -8,8 +8,6 @@ using System.ComponentModel;
 using FluentAssertions;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using MongoDB.Driver.Builders;
-using MongoDB.Driver.GridFS;
 using MongoDB.Driver.Linq;
 using Newtonsoft.Json.Linq;
 using System.Web.Script.Serialization;
