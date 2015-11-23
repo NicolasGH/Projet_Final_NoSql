@@ -1,0 +1,17 @@
+﻿.pic{
+    opacity:0.6;
+    filter:alpha(opacity=60);
+}
+
+.pic-left{
+    float:left;
+}
+
+.pic-right{
+   margin-right:300px;
+    float:right;
+}
+.pic > img{
+    margin:50%;
+    
+}
