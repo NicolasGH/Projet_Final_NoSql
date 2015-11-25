@@ -13,6 +13,7 @@ namespace WebApplicationMongoDB.View
         {
 
             WebApplicationMongoDB.Controller.ElasticsearchClient elastic = new Controller.ElasticsearchClient();
+            System.Diagnostics.Debug.WriteLine("Hello");
             foreach (WebApplicationMongoDB.Controller.ElasticsearchClient.Stockobject obj in elastic.findAll())
             {
                 Panel pnlC = new Panel();
