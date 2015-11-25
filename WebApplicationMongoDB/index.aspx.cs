@@ -13,19 +13,19 @@ namespace WebApplicationMongoDB.View
         {
 
             WebApplicationMongoDB.Controller.ElasticsearchClient elastic = new Controller.ElasticsearchClient();
-            //foreach (WebApplicationMongoDB.Controller.ElasticsearchClient.Stockobject obj in elastic.findAll())
-            //{
-            //    Panel pnlC = new Panel();
-            //    pnlC.Attributes["class"] = "panel-body";
-            //    Panel pnlP = new Panel();
-            //    pnlP.Attributes["class"] = "panel panel-default panelStock";
-            //    Label lbl = new Label();
-            //    lbl.Text = obj.Company;
-            //    pnlC.Controls.Add(lbl);
-            //    pnlP.Controls.Add(pnlC);
-            //    containerStock.Controls.Add(pnlP);
+            foreach (WebApplicationMongoDB.Controller.ElasticsearchClient.Stockobject obj in elastic.findAll())
+            {
+                Panel pnlC = new Panel();
+                pnlC.Attributes["class"] = "panel-body";
+                Panel pnlP = new Panel();
+                pnlP.Attributes["class"] = "panel panel-default panelStock";
+                Label lbl = new Label();
+                lbl.Text = obj.Company;
+                pnlC.Controls.Add(lbl);
+                pnlP.Controls.Add(pnlC);
+                containerStock.Controls.Add(pnlP);
 
-            //}
+            }
             //  elastic.LoadLocalData(@"Z:\Desktop\A4S7\Advanced topics in NoSql databases\TP Final\WebApplicationMongoDB\bin\stocks.json");
 
 

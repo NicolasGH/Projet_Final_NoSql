@@ -20,8 +20,6 @@ namespace WebApplicationMongoDB.Controller
         private ElasticClient client;
         public ElasticsearchClient()
         {
-            Console.WriteLine("hello 65465456123");
-
             this.connexion = new Uri("http://172.21.153.221:9200");
              this.settings = new ConnectionSettings(connexion, defaultIndex: "stockexchange");
             this.client = new ElasticClient(settings);
