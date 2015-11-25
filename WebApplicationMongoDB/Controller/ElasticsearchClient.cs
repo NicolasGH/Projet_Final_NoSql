@@ -15,8 +15,17 @@ namespace WebApplicationMongoDB.Controller
 {
     public class ElasticsearchClient
     {
+        private Uri connexion;
+        private ConnectionSettings settings;
+        private ElasticClient client;
         public ElasticsearchClient()
         {
+            Console.WriteLine("hello 65465456123");
+
+            this.connexion = new Uri("http://172.21.153.221:9200");
+             this.settings = new ConnectionSettings(connexion, defaultIndex: "stockexchange");
+            this.client = new ElasticClient(settings);
+       
 
         }
 
@@ -24,12 +33,7 @@ namespace WebApplicationMongoDB.Controller
         {
             try
             {
-                var node = new Uri("http://localhost:9200");
-                var settings = new ConnectionSettings(node, defaultIndex: "stockexchange");
-                var client = new ElasticClient(settings);
                 var index = client.Index<Stockobject>(obj);
-
-
             }
             catch (Exception e)
             {
@@ -42,16 +46,12 @@ namespace WebApplicationMongoDB.Controller
         {
             try
             {
-                var node = new Uri("http://localhost:9200");
-                var settings = new ConnectionSettings(node, defaultIndex: "stockexchange");
-                var client = new ElasticClient(settings);
                 var searchResults = client.Search<Stockobject>(s => s
                     .AllIndices()
                     .AllTypes()
                     .Size(10)
                     );
                 return searchResults.Documents.ToList();
-
             }
             catch (Exception e)
             {
@@ -61,11 +61,11 @@ namespace WebApplicationMongoDB.Controller
 
         }
 
-        public void LoadLocalData()
+        public void LoadLocalData(String _path)
         {
             try
             {
-                StreamReader file = new StreamReader("stocks.json");
+                StreamReader file = new StreamReader(_path);
                 JavaScriptSerializer ser = new JavaScriptSerializer();
                 while (file.ReadLine() != null)
                 {
