@@ -10,6 +10,7 @@ using System.Web.Script.Serialization;
 using System.IO;
 using MongoDB.Bson;
 using System.Runtime.Serialization;
+using System.Diagnostics;
 
 namespace WebApplicationMongoDB.Controller
 {
@@ -42,18 +43,18 @@ namespace WebApplicationMongoDB.Controller
 
         public List<Stockobject> findAll()
         {
-            try
-            {
+              try
+              {
                 var searchResults = client.Search<Stockobject>(s => s
                     .AllIndices()
-                    .AllTypes()
+                    //.AllTypes()
                     .Size(10)
                     );
                 return searchResults.Documents.ToList();
             }
-            catch (Exception e)
+            catch (JsonSerializationException e)
             {
-                Console.WriteLine(e.ToString());
+                Debug.WriteLine(e.ToString());
                 return null;
             }
 
