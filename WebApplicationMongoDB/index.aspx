@@ -94,15 +94,16 @@
             </div>
         </article>
         <hr style="margin-bottom: 15px;" />
-        <form class="navbar-form navbar-left" role="search" style="margin: 2% 41%">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" />
+        <form class="navbar-form navbar-left" role="search" style="margin: 2% 41%" runat="server">
+            <div class="form-group" style="width:250px">
+                <input id="srchIpt" runat="server" type="text" class="form-control" placeholder="Search" onkeypress="searchfct" />
+                <asp:button runat="server" onClick="searchfct" class="glyphicon glyphicon-search" ></asp:button>
             </div>
             <%--<button type="submit" class="btn btn-default">Submit</button>--%>
         </form>
     </section>
 
-    <section class="containerStock" id="containerStock" runat="server">
+    <section class="containerStock" id="containerStock" runat="server" >
     </section>
     <section class="sct-contain">
         <hr style="margin-bottom: 15px; margin-top:4%" />
