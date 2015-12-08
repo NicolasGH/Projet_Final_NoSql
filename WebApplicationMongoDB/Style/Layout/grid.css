@@ -178,3 +178,12 @@ article > .col-lg-4{
 }
 
 
+/*Pop up*/
+.ModalPopupBG
+{
+    background-color: #444;
+    filter: alpha(opacity=50);
+    opacity: 0.7;
+}
+
+

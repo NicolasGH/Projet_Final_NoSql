@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Nest;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace WebApplicationMongoDB.View
@@ -12,25 +14,25 @@ namespace WebApplicationMongoDB.View
         protected WebApplicationMongoDB.Controller.ElasticsearchClient elastic = new Controller.ElasticsearchClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            int i = 1;
             foreach (WebApplicationMongoDB.Controller.ElasticsearchClient.Stockobject obj in elastic.findAll())
             {
                 Panel pnlC = new Panel();
                 pnlC.Attributes["class"] = "panel-body";
+                pnlC.ID="btn"+i;
                 Panel pnlP = new Panel();
-                pnlP.ID = "pnlP";
                 pnlP.Attributes["class"] = "panel panel-default panelStock";
                 Label lbl = new Label();
                 lbl.Text = obj.Company;
                 pnlC.Controls.Add(lbl);
                 pnlP.Controls.Add(pnlC);
+                containerStock.Controls.Add(elastic.createPopUp(obj));
                 if(srchIpt.Value=="")
                 {
                     containerStock.Controls.Add(pnlP);
                 }
-               
-
-            } 
+                i++;
+            }
 
         }
 

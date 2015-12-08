@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="WebApplicationMongoDB.View.index" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,154 +16,174 @@
     <link rel="stylesheet" href="Style/Main.css" />
 </head>
 <body id="body" runat="server">
-    <header id="header">
-        <div class="conatain-logo">
-            <img class="logo" src="Image/logo.png" alt="logo" style="width: 4%;" />
-        </div>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 4%;">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox" id="carrousel">
-                <div class="item active">
+    <form runat="server">
+        <header id="header">
+            <div class="conatain-logo">
+                
+                <img class="logo" src="Image/logo.png" alt="logo" style="width: 4%;" />
+            </div>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 4%;">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox" id="carrousel">
+                    <div class="item active">
 
-                    <img class="first-slide img" src="Image/bg.jpg" alt="First slide" style="width: 100%; height: 100%" />
-                    <div class="contain">
-                        <h1><span>Lorem</span> ipsum</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <p>Et quoniam mirari posse quosdam peregrinos </p>
-                        <div>
-                            <a class="btn-carrousel" style="transition-delay: 0.3s">Inscription</a>
+                        <img class="first-slide img" src="Image/bg.jpg" alt="First slide" style="width: 100%; height: 100%" />
+                        <div class="contain">
+                            <h1><span>Lorem</span> ipsum</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <p>Et quoniam mirari posse quosdam peregrinos </p>
+                            <div>
+                                <a class="btn-carrousel" style="transition-delay: 0.3s">Inscription</a>
+                            </div>
+                            <div>
+                                <a class="btn-carrousel" style="transition-delay: 0.3s">Connection</a>
+                            </div>
                         </div>
-                        <div>
-                            <a class="btn-carrousel" style="transition-delay: 0.3s">Connection</a>
+                    </div>
+                    <div class="item">
+                        <img class="second-slide img" src="Image/Photo24.jpg" alt="Second slide" style="width: 100%; height: 100%" />
+                        <div class="contain">
+                            <h1><span>Lorem</span> ipsum</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <p>Et quoniam mirari posse quosdam peregrinos </p>
+                            <div>
+                                <a class="btn-carrousel" style="transition-delay: 0.3s">Inscription</a>
+                            </div>
+                            <div>
+                                <a class="btn-carrousel" style="transition-delay: 0.3s">Connection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img class="third-slide img" src="Image/bg.jpg" alt="Third slide" style="width: 100%; height: 100%" />
+                        <div class="contain">
+                            <h1><span>Lorem</span> ipsum</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <p>Et quoniam mirari posse quosdam peregrinos </p>
+                            <div>
+                                <a class="btn-carrousel" style="transition-delay: 0.3s">Inscription</a>
+                            </div>
+                            <div>
+                                <a class="btn-carrousel" style="transition-delay: 0.3s">Connection</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <img class="second-slide img" src="Image/Photo24.jpg" alt="Second slide" style="width: 100%; height: 100%" />
-                    <div class="contain">
-                        <h1><span>Lorem</span> ipsum</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <p>Et quoniam mirari posse quosdam peregrinos </p>
-                        <div>
-                            <a class="btn-carrousel" style="transition-delay: 0.3s">Inscription</a>
-                        </div>
-                        <div>
-                            <a class="btn-carrousel" style="transition-delay: 0.3s">Connection</a>
-                        </div>
-                    </div>
+            </div>
+        </header>
+        <section class="sct-contain">
+            <article class="row" style="text-align: center;" id="article1">
+                <div class="col-lg-4">
+                    <img src="Image/icon/phone-72-64.png" />
+                    <h3>Lorem ipsum</h3>
+                    <p>Sed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias...</p>
+                    <a class="yellow" href="#article2" style="text-decoration: none!important">En savoir plus &raquo;</a>
                 </div>
-                <div class="item">
-                    <img class="third-slide img" src="Image/bg.jpg" alt="Third slide" style="width: 100%; height: 100%" />
-                    <div class="contain">
-                        <h1><span>Lorem</span> ipsum</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <p>Et quoniam mirari posse quosdam peregrinos </p>
-                        <div>
-                            <a class="btn-carrousel" style="transition-delay: 0.3s">Inscription</a>
-                        </div>
-                        <div>
-                            <a class="btn-carrousel" style="transition-delay: 0.3s">Connection</a>
-                        </div>
-                    </div>
+                <div class="col-lg-4">
+                    <img src="Image/icon/calendar-7-64.png" />
+                    <h3>Lorem ipsum</h3>
+                    <p>Sed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias...</p>
+                    <a class="green" href="#article3" style="text-decoration: none!important">En savoir plus &raquo;</a>
                 </div>
-            </div>
-        </div>
-    </header>
-    <section class="sct-contain">
-        <article class="row" style="text-align: center;" id="article1">
-            <div class="col-lg-4">
-                <img src="Image/icon/phone-72-64.png" />
-                <h3>Lorem ipsum</h3>
-                <p>Sed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias...</p>
-                <a class="yellow" href="#article2" style="text-decoration: none!important">En savoir plus &raquo;</a>
-            </div>
-            <div class="col-lg-4">
-                <img src="Image/icon/calendar-7-64.png" />
-                <h3>Lorem ipsum</h3>
-                <p>Sed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias...</p>
-                <a class="green" href="#article3" style="text-decoration: none!important">En savoir plus &raquo;</a>
-            </div>
-            <div class="col-lg-4">
-                <img src="Image/icon/clock-3-64 (1).png" />
-                <h3>Lorem ipsum</h3>
-                <p>Sed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias...</p>
-                <a class="orange" href="#social" style="text-decoration: none!important">En savoir plus &raquo;</a>
-            </div>
-        </article>
-        <hr style="margin-bottom: 15px;" />
-        <form class="navbar-form navbar-left" role="search" style="margin: 2% 41%" runat="server">
-            <div class="form-group" style="width:250px">
+                <div class="col-lg-4">
+                    <img src="Image/icon/clock-3-64 (1).png" />
+                    <h3>Lorem ipsum</h3>
+                    <p>Sed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias...</p>
+                    <a class="orange" href="#social" style="text-decoration: none!important">En savoir plus &raquo;</a>
+                </div>
+            </article>
+            <hr style="margin-bottom: 15px;" />
+            <%--<form class="navbar-form navbar-left" role="search" style="margin: 2% 41%" runat="server">--%>
+            <div class="form-group" style="width: 250px">
                 <input id="srchIpt" runat="server" type="text" class="form-control" placeholder="Search" onkeypress="searchfct" />
-                <asp:button runat="server" onClick="searchfct" class="glyphicon glyphicon-search" ></asp:button>
+                <asp:Button runat="server" OnClick="searchfct" Style="background: transparent; border: none !important;"></asp:Button>
             </div>
             <%--<button type="submit" class="btn btn-default">Submit</button>--%>
-        </form>
-    </section>
+            <%-- </form>--%>
+        </section>
 
-    <section class="containerStock" id="containerStock" runat="server" >
-    </section>
-    <section class="sct-contain">
-        <hr style="margin-bottom: 15px; margin-top:4%" />
-        <div class="social">
-            <img src="Image/social/facebook-4-48.png" />
-            <img src="Image/social/twitter-4-48.png" />
-            <img src="Image/social/linkedin-4-48.png" />
-        </div>
-        <hr style="margin-top: 10px;" />
-        <article id="article2">
-            <div class="article right">
-                <h1 class="title">Lorem <span>ipsm</span></h1>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                </h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+
+
+        <section class="containerStock" id="containerStock" runat="server">
+            <%--<form runat="server">--%>
+            <asp:Button runat="server" ID="seeMore" />
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
+            <%--<asp:Panel runat="server" ID="Panel1" CssClass="content">
+              <div id="content">
+                  <h1>DETAILS</h1>
+                  <a id="modalclosebutton3" class="modalclose">&#10006</a>
+                   <input type="text" placeholder="Nom de votre entreprise" name="compagnyName" data-error="#errNM5" />
+              </div>
+            </asp:Panel>--%>
+            <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
+                TargetControlID="seeMore" PopupControlID="Panel1" CancelControlID="modalclosebutton3"
+                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+            </cc1:ModalPopupExtender>
+            <%--</form>--%>
+        </section >
+        <section class="sct-contain" >
+            <hr style="margin-bottom: 15px; margin-top: 4%" />
+            <div class="social">
+                <img src="Image/social/facebook-4-48.png" />
+                <img src="Image/social/twitter-4-48.png" />
+                <img src="Image/social/linkedin-4-48.png" />
+            </div>
+            <hr style="margin-top: 10px;" />
+            <article id="article2">
+                <div class="article right">
+                    <h1 class="title">Lorem <span>ipsm</span></h1>
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                    </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                    </p>
 
-            </div>
-            <div class="pic pic-left">
-                <img src="Image/icon/phone-72-256 (1).png" />
-            </div>
-        </article>
-        <hr style="clear: both;" />
-        <article id="article3">
-            <div class="article left">
-                <h1 class="title">Lorem <span>ipsm</span></h1>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                </h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                </div>
+                <div class="pic pic-left">
+                    <img src="Image/icon/phone-72-256 (1).png" />
+                </div>
+            </article>
+            <hr style="clear: both;" />
+            <article id="article3">
+                <div class="article left">
+                    <h1 class="title">Lorem <span>ipsm</span></h1>
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                    </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-            </div>
-            <div class="pic pic-right">
-                <img src="Image/icon/calendar-7-256 (1).png" />
-            </div>
-        </article>
-        <hr style="clear: both;" />
-        <article>
-            <div class="article right" id="social">
-                <h1 class="title">Lorem <span>ipsm</span></h1>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                </h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                    </p>
+                </div>
+                <div class="pic pic-right">
+                    <img src="Image/icon/calendar-7-256 (1).png" />
+                </div>
+            </article>
+            <hr style="clear: both;" />
+            <article>
+                <div class="article right" id="social">
+                    <h1 class="title">Lorem <span>ipsm</span></h1>
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                    </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                    </p>
 
-            </div>
-            <div class="pic pic-left">
-                <img src="Image/icon/clock-3-256.png" />
-            </div>
-        </article>
+                </div>
+                <div class="pic pic-left">
+                    <img src="Image/icon/clock-3-256.png" />
+                </div>
+            </article>
 
-    </section>
-
+        </section>
+    </form>
 
     <footer>
         <article class="row" style="text-align: center;">

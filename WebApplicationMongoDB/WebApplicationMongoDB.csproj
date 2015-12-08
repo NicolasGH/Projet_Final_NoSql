@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=15.1.4.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.15.1.4.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Elasticsearch.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
       <HintPath>..\packages\Elasticsearch.Net.1.7.1\lib\net45\Elasticsearch.Net.dll</HintPath>
       <Private>True</Private>
@@ -143,6 +147,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Script\bootstrap\bootstrap.js" />
     <Content Include="Style\Layout\grid.css" />
+    <Content Include="Style\Layout\popup.css" />
     <Content Include="Style\Layout\section.css" />
     <Content Include="Style\Main.css" />
     <Content Include="Style\Module\header.css" />
