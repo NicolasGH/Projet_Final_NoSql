@@ -35,19 +35,12 @@ namespace WebApplicationMongoDB.View
                 pnlC.Controls.Add(lbl);
                 //pnlC.Controls.Add(btn);
                 pnlP.Controls.Add(pnlC);
-                
-                if(srchIpt.Value=="")
+
+                if (srchIpt.Value == "")
                 {
                     //containerStock.Controls.Add(elastic.createPopUp(obj));
                     containerStock.Controls.Add(pnlP);
                 }
-               if(i==1)
-               {
-                   content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
-               }
-                    //content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
-                   
-              
                 i++;
             }
             Button btnB = new Button();
@@ -56,9 +49,17 @@ namespace WebApplicationMongoDB.View
             Button btnS = new Button();
             btnS.Attributes["class"] = "btn-popup";
             btnS.Text = "Delete";
-            ModalPopupExtender1.TargetControlID = "btn1";
+            content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
 
-            
+            try
+            {
+
+                ModalPopupExtender1.TargetControlID = "btn1";
+            }
+            catch (Exception ex)
+            {
+                ModalPopupExtender1.TargetControlID = "secour1";
+            }
             content.Controls.Add(btnS);
             content.Controls.Add(btnB);
             

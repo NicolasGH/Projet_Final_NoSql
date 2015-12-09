@@ -106,7 +106,7 @@
             <%--<button type="submit" class="btn btn-default">Submit</button>--%>
             <%-- </form>--%>
         </section>
-
+        <label id="secour1"></label>
         <section class="containerStock" id="containerStock" runat="server">
             <%--<form runat="server">--%>
             <%--<asp:Button runat="server" ID="seeMore" />--%>
