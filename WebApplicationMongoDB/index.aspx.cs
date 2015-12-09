@@ -19,7 +19,17 @@ namespace WebApplicationMongoDB.View
             //mdc.LoadLocalData(@"Z:\Downloads\stocks-2.json");
             mdc.mapReduceMarketCapCountry();
             int i=1;
-            content.Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
+            try
+            {
+                content.Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
+                content2.Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[1]));
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+  
+            
             foreach (Stockobject obj in elastic.SearchRequestToES(srchIpt.Value))
             {
                 Panel pnlC = new Panel();
@@ -49,19 +59,24 @@ namespace WebApplicationMongoDB.View
             Button btnS = new Button();
             btnS.Attributes["class"] = "btn-popup";
             btnS.Text = "Delete";
-            content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
+            
 
             try
             {
-
+                content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
                 ModalPopupExtender1.TargetControlID = "btn1";
+                content2.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[1]));
+                ModalPopupExtender2.TargetControlID = "btn2";
             }
             catch (Exception ex)
             {
                 ModalPopupExtender1.TargetControlID = "secour1";
+                ModalPopupExtender2.TargetControlID = "secour1";
             }
             content.Controls.Add(btnS);
             content.Controls.Add(btnB);
+            content2.Controls.Add(btnS);
+            content2.Controls.Add(btnB);
             
             
         }
@@ -136,7 +151,7 @@ namespace WebApplicationMongoDB.View
             HtmlGenericControl inpt1 = new HtmlGenericControl("input");
             inpt1.Attributes["type"] = "text";
             inpt1.Attributes["placeholder"] = "Company";
-            inpt1.ID = "inpt1";
+            inpt1.ID = "inpt1" + obj._id;
             inpt1.Attributes["class"] = "input";
             inpt1.Attributes["value"] = obj.Company.ToString();
 
@@ -146,7 +161,7 @@ namespace WebApplicationMongoDB.View
             HtmlGenericControl inpt2 = new HtmlGenericControl("input");
             inpt2.Attributes["type"] = "text";
             inpt2.Attributes["placeholder"] = "Industry";
-            inpt2.ID = "inpt2";
+            inpt2.ID = "inpt2" + obj._id;
             inpt2.Attributes["class"] = "input";
             inpt2.Attributes["value"] = obj.Industry;
 
@@ -166,7 +181,7 @@ namespace WebApplicationMongoDB.View
             HtmlGenericControl inpt4 = new HtmlGenericControl("input");
             inpt4.Attributes["type"] = "text";
             inpt4.Attributes["placeholder"] = "Country";
-            inpt4.ID = "inpt4";
+            inpt4.ID = "inpt4"+obj._id;
             inpt4.Attributes["class"] = "input";
             inpt4.Attributes["value"] = obj.Country.ToString();
 
@@ -176,7 +191,7 @@ namespace WebApplicationMongoDB.View
             HtmlGenericControl inpt5 = new HtmlGenericControl("input");
             inpt5.Attributes["type"] = "text";
             inpt5.Attributes["placeholder"] = "Sector";
-            inpt5.ID = "inpt5";
+            inpt5.ID = "inpt5" + obj._id;
             inpt5.Attributes["class"] = "input";
             inpt5.Attributes["value"] = obj.Sector.ToString();
 
@@ -186,7 +201,7 @@ namespace WebApplicationMongoDB.View
             HtmlGenericControl inpt6 = new HtmlGenericControl("input");
             inpt6.Attributes["type"] = "text";
             inpt6.Attributes["placeholder"] = "Ticker";
-            inpt6.ID = "inpt6";
+            inpt6.ID = "inpt6" + obj._id;
             inpt6.Attributes["class"] = "input";
             inpt6.Attributes["value"] = obj.Ticker.ToString();
 
@@ -237,7 +252,7 @@ namespace WebApplicationMongoDB.View
             tbl.Controls.Add(row2);
 
             tbl.Attributes["class"] = "tableInpt";
-            tbl.ID = "tableInpt";
+            //tbl.ID = "tableInpt";
             return tbl;
         }
 

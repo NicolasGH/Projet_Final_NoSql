@@ -106,22 +106,38 @@
             <%--<button type="submit" class="btn btn-default">Submit</button>--%>
             <%-- </form>--%>
         </section>
-        <label id="secour1"></label>
+       
         <section class="containerStock" id="containerStock" runat="server">
+             <label id="secour1" runat="server"></label>
+             
             <%--<form runat="server">--%>
             <%--<asp:Button runat="server" ID="seeMore" />--%>
             <asp:ScriptManager ID="ScriptManager1" runat="server">
             </asp:ScriptManager>
-       <asp:Panel runat="server" ID="Panel1" CssClass="content">
+            <asp:Panel runat="server" ID="Panel1" CssClass="content">
            <div id="content" runat="server">
                   <h1>DETAILS</h1>
-                  <a id="modalclosebutton3" class="modalclose">&#10006</a>
+                  <a id="modalclosebutton1" class="modalclose">&#10006</a>
               </div>
             </asp:Panel>
-            <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
-                PopupControlID="Panel1" CancelControlID="modalclosebutton3"
+             <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
+                PopupControlID="Panel1" CancelControlID="modalclosebutton1"
                 PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
             </cc1:ModalPopupExtender>
+
+
+             <label id="secour2" runat="server"></label>
+             <asp:Panel runat="server" ID="Panel2" CssClass="content">
+           <div id="content2" runat="server">
+                  <h1>DETAILS</h1>
+                  <a id="modalclosebutton2" class="modalclose">&#10006</a>
+              </div>
+            </asp:Panel>
+             <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
+                PopupControlID="Panel2" CancelControlID="modalclosebutton2"
+                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+            </cc1:ModalPopupExtender>
+           
             <%--</form>--%>
             
         </section >
