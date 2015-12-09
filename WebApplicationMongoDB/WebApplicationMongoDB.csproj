@@ -156,6 +156,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classe Rebus.cs" />
     <Compile Include="Controller\ElasticsearchClient.cs" />
     <Compile Include="Controller\MongoDBClient.cs" />
     <Compile Include="Model\StockObject.cs" />
