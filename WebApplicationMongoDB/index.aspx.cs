@@ -23,17 +23,29 @@ namespace WebApplicationMongoDB.View
             dctPnl.Add(2,content2);
             dctPnl.Add(3, content3);
             dctPnl.Add(4, content4);
+            dctPnl.Add(5, content5);
+            dctPnl.Add(6, content6);
+            dctPnl.Add(7, content7);
+            dctPnl.Add(8, content8);
+            dctPnl.Add(9, content9);
+            dctPnl.Add(10, content10);
             dctMdl.Add(1, ModalPopupExtender1);
             dctMdl.Add(2, ModalPopupExtender2);
             dctMdl.Add(3, ModalPopupExtender3);
             dctMdl.Add(4, ModalPopupExtender4);
+            dctMdl.Add(5, ModalPopupExtender5);
+            dctMdl.Add(6, ModalPopupExtender6);
+            dctMdl.Add(7, ModalPopupExtender7);
+            dctMdl.Add(8, ModalPopupExtender8);
+            dctMdl.Add(9, ModalPopupExtender9);
+            dctMdl.Add(10, ModalPopupExtender10);
 
             //mdc.LoadLocalData(@"Z:\Downloads\stocks-2.json");
             mdc.mapReduceIndustryCountry("France");
             int i=1;
             Task t = Task.Run(() =>
             {
-                for (i = 1; i <= 4; i++)
+                for (i = 1; i <= 10; i++)
                 {
                     try
                     {
@@ -50,32 +62,27 @@ namespace WebApplicationMongoDB.View
 
             i = 1;
   
-            
             foreach (Stockobject obj in elastic.SearchRequestToES(srchIpt.Value))
             {
                 Panel pnlC = new Panel();
                 pnlC.Attributes["class"] = "panel-body";
                 Button btn = new Button();
-                //pnlC.ID="btn" + obj._id.ToString();
                 pnlC.ID = "btn" + i;
-                //btn.ID = "btn" + obj._id.ToString();
                 Panel pnlP = new Panel();
                 pnlP.Attributes["class"] = "panel panel-default panelStock";
                 Label lbl = new Label();
                 lbl.Text = obj.Company;
                 pnlC.Controls.Add(lbl);
-                //pnlC.Controls.Add(btn);
                 pnlP.Controls.Add(pnlC);
 
                 if (srchIpt.Value == "")
                 {
-                    //containerStock.Controls.Add(elastic.createPopUp(obj));
                     containerStock.Controls.Add(pnlP);
                 }
                 i++;
             }
            
-            for (i = 1; i <= 4; i++)
+            for (i = 1; i <= 10; i++)
             {
                 try
                 {
@@ -101,7 +108,6 @@ namespace WebApplicationMongoDB.View
 
         protected void searchfct(object sender, EventArgs e)
         {
-            //containerStock.Controls.Remove(pnlP);
             int i = 1;
             foreach (WebApplicationMongoDB.Stockobject obj in elastic.SearchRequestToES(srchIpt.Value))
             {
@@ -120,46 +126,7 @@ namespace WebApplicationMongoDB.View
 
         }
 
-        public Panel createPopUp(Stockobject obj)
-        {
-            try
-            {
-                Panel pnlP = new Panel();
-                pnlP.Attributes["class"] = "poping";
-                Panel pnlS = new Panel();
-                pnlS.ID = "Panel" + obj._id.ToString();
-                pnlS.Attributes["class"] = "content";
-                HtmlGenericControl h1 = new HtmlGenericControl("h1");
-                h1.InnerHtml = "Details";
-                HtmlGenericControl div = new HtmlGenericControl("div");
-                div.ID = "content" + obj._id.ToString();
-                HtmlGenericControl a = new HtmlGenericControl("a");
-                a.ID = "modalclosebutton" + obj._id.ToString();
-                div.Controls.Add(h1);
-                div.Controls.Add(a);
-                div.Controls.Add(createInputs(obj));
-                pnlS.Controls.Add(div);
-
-                AjaxControlToolkit.ModalPopupExtender modalPop = new AjaxControlToolkit.ModalPopupExtender();
-                modalPop.ID = "popUp" + obj._id.ToString();
-                modalPop.PopupControlID = "Panel" + obj._id.ToString();
-                modalPop.TargetControlID = "btn" + obj._id.ToString();
-                modalPop.DropShadow = true;
-                modalPop.BackgroundCssClass = "modalBackground";
-                modalPop.CancelControlID = "modalclosebutton" + obj._id.ToString();
-
-
-                pnlP.Controls.Add(pnlS);
-                pnlP.Controls.Add(modalPop);
-
-                return pnlP;
-            }
-            catch (Exception e)
-            {
-                e.ToString();
-                return null;
-            }
-        }
+      
 
         public Table createInputs(Stockobject obj)
         {
@@ -182,16 +149,6 @@ namespace WebApplicationMongoDB.View
             inpt2.ID = "inpt2" + obj._id;
             inpt2.Attributes["class"] = "input";
             inpt2.Attributes["value"] = obj.Industry;
-
-            //Label lbl3 = new Label();
-            //lbl3.Attributes["class"] = "lblDetails";
-            //lbl3.Text = "Current Ratio";
-            //HtmlGenericControl inpt3 = new HtmlGenericControl("input");
-            //inpt3.Attributes["type"] = "text";
-            //inpt3.Attributes["placeholder"] = "Current Ratio";
-            //inpt3.ID = "inpt3";
-            //inpt3.Attributes["class"] = "input";
-            //inpt3.Attributes["value"] = obj.CurrentRatio.ToString();
 
             Label lbl4 = new Label();
             lbl4.Attributes["class"] = "lblDetails";
@@ -270,11 +227,49 @@ namespace WebApplicationMongoDB.View
             tbl.Controls.Add(row2);
 
             tbl.Attributes["class"] = "tableInpt";
-            //tbl.ID = "tableInpt";
             return tbl;
         }
 
+        //public Panel createPopUp(Stockobject obj)
+        //{
+        //    try
+        //    {
+        //        Panel pnlP = new Panel();
+        //        pnlP.Attributes["class"] = "poping";
+        //        Panel pnlS = new Panel();
+        //        pnlS.ID = "Panel" + obj._id.ToString();
+        //        pnlS.Attributes["class"] = "content";
+        //        HtmlGenericControl h1 = new HtmlGenericControl("h1");
+        //        h1.InnerHtml = "Details";
+        //        HtmlGenericControl div = new HtmlGenericControl("div");
+        //        div.ID = "content" + obj._id.ToString();
+        //        HtmlGenericControl a = new HtmlGenericControl("a");
+        //        a.ID = "modalclosebutton" + obj._id.ToString();
+        //        div.Controls.Add(h1);
+        //        div.Controls.Add(a);
+        //        div.Controls.Add(createInputs(obj));
+        //        pnlS.Controls.Add(div);
 
+        //        AjaxControlToolkit.ModalPopupExtender modalPop = new AjaxControlToolkit.ModalPopupExtender();
+        //        modalPop.ID = "popUp" + obj._id.ToString();
+        //        modalPop.PopupControlID = "Panel" + obj._id.ToString();
+        //        modalPop.TargetControlID = "btn" + obj._id.ToString();
+        //        modalPop.DropShadow = true;
+        //        modalPop.BackgroundCssClass = "modalBackground";
+        //        modalPop.CancelControlID = "modalclosebutton" + obj._id.ToString();
+
+
+        //        pnlP.Controls.Add(pnlS);
+        //        pnlP.Controls.Add(modalPop);
+
+        //        return pnlP;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        e.ToString();
+        //        return null;
+        //    }
+        //}
 
     }
 }
