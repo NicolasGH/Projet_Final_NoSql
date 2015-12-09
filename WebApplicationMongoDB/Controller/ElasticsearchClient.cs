@@ -533,6 +533,7 @@ namespace WebApplicationMongoDB.Controller
             //[ElasticProperty(Name = "Earnings Date")]
             //[JsonProperty("Earnings Date")]
             //public string EarningsDate { get; set; }
+
             [ElasticProperty(Name = "Sector")]
             [JsonProperty("Sector")]
             public string Sector { get; set; }
