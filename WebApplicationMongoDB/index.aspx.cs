@@ -84,21 +84,34 @@ namespace WebApplicationMongoDB.View
            
             for (i = 1; i <= 10; i++)
             {
-                try
-                {
-                  dctPnl[i].Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[i-1]));
-                  dctMdl[i].TargetControlID = "btn" + i;
-                }
-                catch (Exception ex)
-                {
-                    dctMdl[i].TargetControlID = "secour1";
-                }
                 Button btnB = new Button();
                 btnB.Attributes["class"] = "btn-popup";
                 btnB.Text = "Update";
                 Button btnS = new Button();
                 btnS.Attributes["class"] = "btn-popup";
                 btnS.Text = "Delete";
+                try
+                {
+                  Stockobject ob = elastic.SearchRequestToES(srchIpt.Value).ToList()[i-1];
+                  dctPnl[i].Controls.Add(createInputs(ob));
+                  dctMdl[i].TargetControlID = "btn" + i;
+                  btnS.Click += (s, ex) =>
+                  {
+                      mdc.deleteData(ob);
+                  };
+                  btnB.Click += (s, ex) =>
+                  {
+                      mdc.updateData(ob, "stockcollection");
+                  };
+
+                }
+                catch (Exception ex)
+                {
+                    dctMdl[i].TargetControlID = "secour1";
+                }
+                
+                
+                
 
                 dctPnl[i].Controls.Add(btnS);
                 dctPnl[i].Controls.Add(btnB);

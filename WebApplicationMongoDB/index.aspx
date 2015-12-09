@@ -19,7 +19,7 @@
     <form runat="server">
         <header id="header">
             <div class="conatain-logo">
-                
+
                 <img class="logo" src="Image/logo.png" alt="logo" style="width: 4%;" />
             </div>
             <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 4%;">
@@ -106,128 +106,127 @@
             <%--<button type="submit" class="btn btn-default">Submit</button>--%>
             <%-- </form>--%>
         </section>
-       
+
         <section class="containerStock" id="containerStock" runat="server">
-             <label id="secour1" runat="server"></label>
-             
+            <label id="secour1" runat="server"></label>
+
             <%--<form runat="server">--%>
             <%--<asp:Button runat="server" ID="seeMore" />--%>
             <asp:ScriptManager ID="ScriptManager1" runat="server">
             </asp:ScriptManager>
             <asp:Panel runat="server" ID="Panel1" CssClass="content">
-           <div id="content" runat="server">
-                  <h1>DETAILS</h1>
-                  <a id="modalclosebutton1" class="modalclose">&#10006</a>
-              </div>
+                <div id="content" runat="server">
+                    <h1>DETAILS</h1>
+                    <a id="modalclosebutton1" class="modalclose">&#10006</a>
+                </div>
             </asp:Panel>
-             <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
+            <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
                 PopupControlID="Panel1" CancelControlID="modalclosebutton1"
-                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+                PopupDragHandleControlID="PopupHeader" Drag="true" BackgroundCssClass="ModalPopupBG">
             </cc1:ModalPopupExtender>
 
-             <asp:Panel runat="server" ID="Panel2" CssClass="content">
-           <div id="content2" runat="server">
-                  <h1>DETAILS</h1>
-                  <a id="modalclosebutton2" class="modalclose">&#10006</a>
-              </div>
+            <asp:Panel runat="server" ID="Panel2" CssClass="content">
+                <div id="content2" runat="server">
+                    <h1>DETAILS</h1>
+                    <a id="modalclosebutton2" class="modalclose">&#10006</a>
+                </div>
             </asp:Panel>
-             <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
+            <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
                 PopupControlID="Panel2" CancelControlID="modalclosebutton2"
-                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+                PopupDragHandleControlID="PopupHeader" Drag="true" BackgroundCssClass="ModalPopupBG">
             </cc1:ModalPopupExtender>
 
-             <asp:Panel runat="server" ID="Panel3" CssClass="content">
-           <div id="content3" runat="server">
-                  <h1>DETAILS</h1>
-                  <a id="modalclosebutton3" class="modalclose">&#10006</a>
-              </div>
+            <asp:Panel runat="server" ID="Panel3" CssClass="content">
+                <div id="content3" runat="server">
+                    <h1>DETAILS</h1>
+                    <a id="modalclosebutton3" class="modalclose">&#10006</a>
+                </div>
             </asp:Panel>
-             <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server"
+            <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server"
                 PopupControlID="Panel3" CancelControlID="modalclosebutton3"
-                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+                PopupDragHandleControlID="PopupHeader" Drag="true" BackgroundCssClass="ModalPopupBG">
             </cc1:ModalPopupExtender>
 
             <asp:Panel runat="server" ID="Panel4" CssClass="content">
-           <div id="content4" runat="server">
-                  <h1>DETAILS</h1>
-                  <a id="modalclosebutton4" class="modalclose">&#10006</a>
-              </div>
+                <div id="content4" runat="server">
+                    <h1>DETAILS</h1>
+                    <a id="modalclosebutton4" class="modalclose">&#10006</a>
+                </div>
             </asp:Panel>
-             <cc1:ModalPopupExtender ID="ModalPopupExtender4" runat="server"
+            <cc1:ModalPopupExtender ID="ModalPopupExtender4" runat="server"
                 PopupControlID="Panel4" CancelControlID="modalclosebutton4"
-                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+                PopupDragHandleControlID="PopupHeader" Drag="true" BackgroundCssClass="ModalPopupBG">
             </cc1:ModalPopupExtender>
 
-             <asp:Panel runat="server" ID="Panel5" CssClass="content">
-           <div id="content5" runat="server">
-                  <h1>DETAILS</h1>
-                  <a id="modalclosebutton5" class="modalclose">&#10006</a>
-              </div>
+            <asp:Panel runat="server" ID="Panel5" CssClass="content">
+                <div id="content5" runat="server">
+                    <h1>DETAILS</h1>
+                    <a id="modalclosebutton5" class="modalclose">&#10006</a>
+                </div>
             </asp:Panel>
-             <cc1:ModalPopupExtender ID="ModalPopupExtender5" runat="server"
+            <cc1:ModalPopupExtender ID="ModalPopupExtender5" runat="server"
                 PopupControlID="Panel5" CancelControlID="modalclosebutton5"
-                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+                PopupDragHandleControlID="PopupHeader" Drag="true" BackgroundCssClass="ModalPopupBG">
             </cc1:ModalPopupExtender>
 
-             <asp:Panel runat="server" ID="Panel6" CssClass="content">
-           <div id="content6" runat="server">
-                  <h1>DETAILS</h1>
-                  <a id="modalclosebutton6" class="modalclose">&#10006</a>
-              </div>
+            <asp:Panel runat="server" ID="Panel6" CssClass="content">
+                <div id="content6" runat="server">
+                    <h1>DETAILS</h1>
+                    <a id="modalclosebutton6" class="modalclose">&#10006</a>
+                </div>
             </asp:Panel>
-             <cc1:ModalPopupExtender ID="ModalPopupExtender6" runat="server"
+            <cc1:ModalPopupExtender ID="ModalPopupExtender6" runat="server"
                 PopupControlID="Panel6" CancelControlID="modalclosebutton6"
-                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+                PopupDragHandleControlID="PopupHeader" Drag="true" BackgroundCssClass="ModalPopupBG">
             </cc1:ModalPopupExtender>
 
-               <asp:Panel runat="server" ID="Panel7" CssClass="content">
-           <div id="content7" runat="server">
-                  <h1>DETAILS</h1>
-                  <a id="modalclosebutton7" class="modalclose">&#10006</a>
-              </div>
+            <asp:Panel runat="server" ID="Panel7" CssClass="content">
+                <div id="content7" runat="server">
+                    <h1>DETAILS</h1>
+                    <a id="modalclosebutton7" class="modalclose">&#10006</a>
+                </div>
             </asp:Panel>
-             <cc1:ModalPopupExtender ID="ModalPopupExtender7" runat="server"
+            <cc1:ModalPopupExtender ID="ModalPopupExtender7" runat="server"
                 PopupControlID="Panel7" CancelControlID="modalclosebutton7"
-                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+                PopupDragHandleControlID="PopupHeader" Drag="true" BackgroundCssClass="ModalPopupBG">
             </cc1:ModalPopupExtender>
 
-              <asp:Panel runat="server" ID="Panel8" CssClass="content">
-           <div id="content8" runat="server">
-                  <h1>DETAILS</h1>
-                  <a id="modalclosebutton8" class="modalclose">&#10006</a>
-              </div>
+            <asp:Panel runat="server" ID="Panel8" CssClass="content">
+                <div id="content8" runat="server">
+                    <h1>DETAILS</h1>
+                    <a id="modalclosebutton8" class="modalclose">&#10006</a>
+                </div>
             </asp:Panel>
-             <cc1:ModalPopupExtender ID="ModalPopupExtender8" runat="server"
+            <cc1:ModalPopupExtender ID="ModalPopupExtender8" runat="server"
                 PopupControlID="Panel8" CancelControlID="modalclosebutton8"
-                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+                PopupDragHandleControlID="PopupHeader" Drag="true" BackgroundCssClass="ModalPopupBG">
             </cc1:ModalPopupExtender>
 
-              <asp:Panel runat="server" ID="Panel9" CssClass="content">
-           <div id="content9" runat="server">
-                  <h1>DETAILS</h1>
-                  <a id="modalclosebutton9" class="modalclose">&#10006</a>
-              </div>
+            <asp:Panel runat="server" ID="Panel9" CssClass="content">
+                <div id="content9" runat="server">
+                    <h1>DETAILS</h1>
+                    <a id="modalclosebutton9" class="modalclose">&#10006</a>
+                </div>
             </asp:Panel>
-             <cc1:ModalPopupExtender ID="ModalPopupExtender9" runat="server"
+            <cc1:ModalPopupExtender ID="ModalPopupExtender9" runat="server"
                 PopupControlID="Panel9" CancelControlID="modalclosebutton9"
-                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+                PopupDragHandleControlID="PopupHeader" Drag="true" BackgroundCssClass="ModalPopupBG">
             </cc1:ModalPopupExtender>
 
-              <asp:Panel runat="server" ID="Panel10" CssClass="content">
-           <div id="content10" runat="server">
-                  <h1>DETAILS</h1>
-                  <a id="modalclosebutton10" class="modalclose">&#10006</a>
-              </div>
+            <asp:Panel runat="server" ID="Panel10" CssClass="content">
+                <div id="content10" runat="server">
+                    <h1>DETAILS</h1>
+                    <a id="modalclosebutton10" class="modalclose">&#10006</a>
+                </div>
             </asp:Panel>
-             <cc1:ModalPopupExtender ID="ModalPopupExtender10" runat="server"
+            <cc1:ModalPopupExtender ID="ModalPopupExtender10" runat="server"
                 PopupControlID="Panel10" CancelControlID="modalclosebutton10"
-                PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
+                PopupDragHandleControlID="PopupHeader" Drag="true" BackgroundCssClass="ModalPopupBG">
             </cc1:ModalPopupExtender>
-           
+
             <%--</form>--%>
-            
-        </section >
-        <section class="sct-contain" >
+        </section>
+        <section class="sct-contain">
             <hr style="margin-bottom: 15px; margin-top: 4%" />
             <div class="social">
                 <img src="Image/social/facebook-4-48.png" />
