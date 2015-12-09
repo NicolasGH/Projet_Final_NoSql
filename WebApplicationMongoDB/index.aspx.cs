@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using WebApplicationMongoDB.Controller;
 
 namespace WebApplicationMongoDB.View
 {
@@ -14,6 +15,9 @@ namespace WebApplicationMongoDB.View
         protected WebApplicationMongoDB.Controller.ElasticsearchClient elastic = new Controller.ElasticsearchClient();
         protected void Page_Load(object sender, EventArgs e)
         {
+            MongoDBClient mdc = new MongoDBClient("stockcollection");
+            //mdc.LoadLocalData(@"Z:\Downloads\stocks-2.json");
+            mdc.mapReduceMarketCapCountry();
             int i=1;
             content.Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
             foreach (Stockobject obj in elastic.SearchRequestToES(srchIpt.Value))
