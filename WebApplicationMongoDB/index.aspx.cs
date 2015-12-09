@@ -17,6 +17,9 @@ namespace WebApplicationMongoDB.View
         protected void Page_Load(object sender, EventArgs e)
         {
             MongoDBClient mdc = new MongoDBClient("stockcollection");
+           // System.Diagnostics.Debug.WriteLine( (mdc.aggregateCountrySorted("France", "Price", true)).Result.Count);
+            
+
             Dictionary<int, HtmlGenericControl> dctPnl = new Dictionary<int, HtmlGenericControl>();
             Dictionary<int, AjaxControlToolkit.ModalPopupExtender> dctMdl = new Dictionary<int, AjaxControlToolkit.ModalPopupExtender>();
             dctPnl.Add(1,content);
@@ -41,7 +44,6 @@ namespace WebApplicationMongoDB.View
             dctMdl.Add(10, ModalPopupExtender10);
 
             //mdc.LoadLocalData(@"Z:\Downloads\stocks-2.json");
-            mdc.mapReduceIndustryCountry("France");
             int i=1;
             Task t = Task.Run(() =>
             {
