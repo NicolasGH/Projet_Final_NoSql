@@ -6,6 +6,8 @@ using System.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.IO;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace WebApplicationMongoDB.Controller
 {
@@ -112,6 +114,43 @@ namespace WebApplicationMongoDB.Controller
             string reduce = @"function(key, values){return Array.sum(values);}";
             var results = collection.MapReduceAsync<BsonDocument>(map, reduce).Result.ForEachAsync(document => list.Add(document.GetValue("_id").ToString(), Convert.ToInt32(document.GetValue("value"))));
             return list;
+        }
+
+        public void aggregateCountrySorted(string _country, string _sortBy, bool _asc)
+        {
+            int i = 0;
+            if (_asc) i = 1;
+            else i = -1;
+            List<Stockobject> list = new List<Stockobject>();
+            List<BsonDocument> list2 = new List<BsonDocument>();
+
+            var aggregate = collection.Aggregate()
+                                      .Match(new BsonDocument { { "Country", "France" } })
+                                      .Sort(new BsonDocument { { _sortBy, 1 } });
+
+
+            var jsonSettings = new JsonWriterSettings { OutputMode = JsonOutputMode.Strict };
+            System.Diagnostics.Debug.WriteLine(aggregate.ToJson());// (document => list2.Add(document));
+             //System.Diagnostics.Debug.WriteLine(results);
+
+         //   return Task;
+            //int i = 0;
+            //if (_asc) i = 1;
+            //else i = -1;
+            //List<Stockobject> list = new List<Stockobject>();
+            //List<BsonDocument> list2 = new List<BsonDocument>();
+
+            //var aggregate = collection.Aggregate()
+            //                          .Match(new BsonDocument { { "Country", "France" } })
+            //                          .Sort(new BsonDocument { { _sortBy, 1 } });
+
+            //var jsonSettings = new JsonWriterSettings { OutputMode = JsonOutputMode.Strict };
+            //System.Diagnostics.Debug.WriteLine("Here1");
+
+            //var results = await aggregate.ToListAsync<Stockobject>(;
+            //System.Diagnostics.Debug.WriteLine("Here2");
+            //document => list.Add(BsonSerializer.Deserialize<Stockobject>(document.ToJson(jsonSettings)))
+
         }
 
     }

@@ -1,4 +1,6 @@
-﻿using Nest;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using Nest;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,173 +11,174 @@ namespace WebApplicationMongoDB
 {
     [ElasticType(Name = "stocks")]
     [JsonObject(MemberSerialization.OptIn)]
+    [BsonIgnoreExtraElements]
     public class Stockobject
     {
         [ElasticProperty(Name = "EPS growth next 5 year")]
         [JsonProperty("EPS growth next 5 year")]
-        public float EPSgrowthnext5years { get; set; }
+        public double EPSgrowthnext5years { get; set; }
         [ElasticProperty(Name = "Company")]
         [JsonProperty("Company")]
         public string Company { get; set; }
         [ElasticProperty(Name = "Current Ratio")]
         [JsonProperty("Current Ratio")]
-        public float CurrentRatio { get; set; }
+        public double CurrentRatio { get; set; }
         [ElasticProperty(Name = "Payout Ratio")]
         [JsonProperty("Payout Ratio")]
-        public float PayoutRatio { get; set; }
+        public double PayoutRatio { get; set; }
         [ElasticProperty(Name = "Operating Margin")]
         [JsonProperty("Operating Margin")]
-        public float OperatingMargin { get; set; }
-        [ElasticProperty(Name = "Shares Float")]
-        [JsonProperty("Shares Float")]
-        public float SharesFloat { get; set; }
+        public double OperatingMargin { get; set; }
+        [ElasticProperty(Name = "Shares double")]
+        [JsonProperty("Shares double")]
+        public double Sharesdouble { get; set; }
         [ElasticProperty(Name = "P/Cash")]
         [JsonProperty("P/Cash")]
-        public float PCash { get; set; }
+        public double PCash { get; set; }
         [ElasticProperty(Name = "Institutional Transactions")]
         [JsonProperty("Institutional Transactions")]
-        public float InstitutionalTransactions { get; set; }
+        public double InstitutionalTransactions { get; set; }
         [ElasticProperty(Name = "Average True Range")]
         [JsonProperty("Average True Range")]
-        public float AverageTrueRange { get; set; }
+        public double AverageTrueRange { get; set; }
         [ElasticProperty(Name = "Performance (Half Year)")]
         [JsonProperty("Performance (Half Year)")]
-        public float PerformanceHalfYear { get; set; }
+        public double PerformanceHalfYear { get; set; }
         [ElasticProperty(Name = "Beta")]
         [JsonProperty("Beta")]
-        public float Beta { get; set; }
+        public double Beta { get; set; }
         [ElasticProperty(Name = "Industry")]
         [JsonProperty("Industry")]
         public string Industry { get; set; }
         [ElasticProperty(Name = "Average Volume")]
         [JsonProperty("Average Volume")]
-        public float AverageVolume { get; set; }
+        public double AverageVolume { get; set; }
         [ElasticProperty(Name = "Performance (Year)")]
         [JsonProperty("Performance (Year)")]
-        public float PerformanceYear { get; set; }
+        public double PerformanceYear { get; set; }
         [ElasticProperty(Name = "200-Day Simple Moving Average")]
         [JsonProperty("200-Day Simple Moving Average")]
-        public float _200DaySimpleMovingAverage { get; set; }
+        public double _200DaySimpleMovingAverage { get; set; }
         [ElasticProperty(Name = "Total Debt/Equity")]
         [JsonProperty("Total Debt/Equity")]
-        public float TotalDebtEquity { get; set; }
+        public double TotalDebtEquity { get; set; }
         [ElasticProperty(Name = "EPS (ttm)")]
         [JsonProperty("EPS (ttm)")]
-        public float EPSttm { get; set; }
+        public double EPSttm { get; set; }
         [ElasticProperty(Name = "Forward P/E")]
         [JsonProperty("Forward P/E")]
-        public float ForwardPE { get; set; }
+        public double ForwardPE { get; set; }
         [ElasticProperty(Name = "Volatility (Week)")]
         [JsonProperty("Volatility (Week)")]
-        public float VolatilityWeek { get; set; }
+        public double VolatilityWeek { get; set; }
         [ElasticProperty(Name = "Change from Open")]
         [JsonProperty("Change from Open")]
-        public float ChangefromOpen { get; set; }
+        public double ChangefromOpen { get; set; }
         [ElasticProperty(Name = "Sales growth quarter over quarter")]
         [JsonProperty("Sales growth quarter over quarter")]
-        public float Salesgrowthquarteroverquarter { get; set; }
+        public double Salesgrowthquarteroverquarter { get; set; }
         [ElasticProperty(Name = "Short Ratio")]
         [JsonProperty("Short Ratio")]
-        public float ShortRatio { get; set; }
+        public double ShortRatio { get; set; }
         [ElasticProperty(Name = "Price")]
         [JsonProperty("Price")]
-        public float Price { get; set; }
+        public double Price { get; set; }
         [ElasticProperty(Name = "Volume")]
         [JsonProperty("Volume")]
-        public float Volume { get; set; }
+        public double Volume { get; set; }
         [ElasticProperty(Name = "Relative Volume")]
         [JsonProperty("Relative Volume")]
-        public float RelativeVolume { get; set; }
+        public double RelativeVolume { get; set; }
         [ElasticProperty(Name = "20-Day Simple Moving Average")]
         [JsonProperty("20-Day Simple Moving Average")]
-        public float _20DaySimpleMovingAverage { get; set; }
+        public double _20DaySimpleMovingAverage { get; set; }
         [ElasticProperty(Name = "Gap")]
         [JsonProperty("Gap")]
-        public float Gap { get; set; }
+        public double Gap { get; set; }
         [ElasticProperty(Name = "Country")]
         [JsonProperty("Country")]
         public string Country { get; set; }
         [ElasticProperty(Name = "52-Week Low")]
         [JsonProperty("52-Week Low")]
-        public float _52WeekLow { get; set; }
+        public double _52WeekLow { get; set; }
         [ElasticProperty(Name = "_id")]
         [JsonProperty("_id")]
-        public string _id { get; set; }
+        public Object _id { get; set; }
         [ElasticProperty(Name = "Market Cap")]
         [JsonProperty("Market Cap")]
-        public float MarketCap { get; set; }
+        public double MarketCap { get; set; }
         [ElasticProperty(Name = "EPS growth past 5 years")]
         [JsonProperty("EPS growth past 5 years")]
-        public float EPSgrowthpast5years { get; set; }
+        public double EPSgrowthpast5years { get; set; }
         [ElasticProperty(Name = "50-Day Simple Moving Average")]
         [JsonProperty("50-Day Simple Moving Average")]
-        public float _50DaySimpleMovingAverage { get; set; }
+        public double _50DaySimpleMovingAverage { get; set; }
         [ElasticProperty(Name = "Quick Ratio")]
         [JsonProperty("Quick Ratio")]
-        public float QuickRatio { get; set; }
+        public double QuickRatio { get; set; }
         [ElasticProperty(Name = "P/B")]
         [JsonProperty("P/B")]
-        public float PB { get; set; }
+        public double PB { get; set; }
         [ElasticProperty(Name = "EPS growth next year")]
         [JsonProperty("EPS growth next year")]
-        public float EPSgrowthnextyear { get; set; }
+        public double EPSgrowthnextyear { get; set; }
         [ElasticProperty(Name = "Profit Margin")]
         [JsonProperty("Profit Margin")]
-        public float ProfitMargin { get; set; }
+        public double ProfitMargin { get; set; }
         [ElasticProperty(Name = "Performance (YTD)")]
         [JsonProperty("Performance (YTD)")]
-        public float PerformanceYTD { get; set; }
+        public double PerformanceYTD { get; set; }
         [ElasticProperty(Name = "Sales growth past 5 years")]
         [JsonProperty("Sales growth past 5 years")]
-        public float Salesgrowthpast5years { get; set; }
+        public double Salesgrowthpast5years { get; set; }
         [ElasticProperty(Name = "P/E")]
         [JsonProperty("P/E")]
-        public float PE { get; set; }
+        public double PE { get; set; }
         [ElasticProperty(Name = "50-Day High")]
         [JsonProperty("50-Day High")]
-        public float _50DayHigh { get; set; }
+        public double _50DayHigh { get; set; }
         [ElasticProperty(Name = "Relative Strength Index (14)")]
         [JsonProperty("Relative Strength Index (14)")]
-        public float RelativeStrengthIndex14 { get; set; }
-        [ElasticProperty(Name = "Float Short")]
-        [JsonProperty("Float Short")]
-        public float FloatShort { get; set; }
+        public double RelativeStrengthIndex14 { get; set; }
+        [ElasticProperty(Name = "double Short")]
+        [JsonProperty("double Short")]
+        public double doubleShort { get; set; }
         [ElasticProperty(Name = "Analyst Recom")]
         [JsonProperty("Analyst Recom")]
-        public float AnalystRecom { get; set; }
+        public double AnalystRecom { get; set; }
         [ElasticProperty(Name = "Return on Investment")]
         [JsonProperty("Return on Investment")]
-        public float ReturnonInvestment { get; set; }
+        public double ReturnonInvestment { get; set; }
         [ElasticProperty(Name = "Return on Assets")]
         [JsonProperty("Return on Assets")]
-        public float ReturnonAssets { get; set; }
+        public double ReturnonAssets { get; set; }
         [ElasticProperty(Name = "Shares Outstanding")]
         [JsonProperty("Shares Outstanding")]
-        public float SharesOutstanding { get; set; }
+        public double SharesOutstanding { get; set; }
         [ElasticProperty(Name = "Volatility (Month)")]
         [JsonProperty("Volatility (Month)")]
-        public float VolatilityMonth { get; set; }
+        public double VolatilityMonth { get; set; }
         [ElasticProperty(Name = "Performance (Week)")]
         [JsonProperty("Performance (Week)")]
-        public float PerformanceWeek { get; set; }
+        public double PerformanceWeek { get; set; }
         [ElasticProperty(Name = "P/S")]
         [JsonProperty("P/S")]
-        public float PS { get; set; }
+        public double PS { get; set; }
         [ElasticProperty(Name = "Gross Margin")]
         [JsonProperty("Gross Margin")]
-        public float GrossMargin { get; set; }
+        public double GrossMargin { get; set; }
         [ElasticProperty(Name = "P/Free Cash Flow")]
         [JsonProperty("P/Free Cash Flow")]
-        public float PFreeCashFlow { get; set; }
+        public double PFreeCashFlow { get; set; }
         [ElasticProperty(Name = "LT Debt/Equity")]
         [JsonProperty("LT Debt/Equity")]
-        public float LTDebtEquity { get; set; }
+        public double LTDebtEquity { get; set; }
         [ElasticProperty(Name = "52-Week High")]
         [JsonProperty("52-Week High")]
-        public float _52WeekHigh { get; set; }
+        public double _52WeekHigh { get; set; }
         [ElasticProperty(Name = "50-Day Low")]
         [JsonProperty("50-Day Low")]
-        public float _50DayLow { get; set; }
+        public double _50DayLow { get; set; }
         //[ElasticProperty(Name = "Earnings Date")]
         //[JsonProperty("Earnings Date")]
         //public string EarningsDate { get; set; }
@@ -188,37 +191,37 @@ namespace WebApplicationMongoDB
         public string Ticker { get; set; }
         [ElasticProperty(Name = "Institutional Ownership")]
         [JsonProperty("Institutional Ownership")]
-        public float InstitutionalOwnership { get; set; }
+        public double InstitutionalOwnership { get; set; }
         [ElasticProperty(Name = "EPS growth this year")]
         [JsonProperty("EPS growth this year")]
-        public float EPSgrowththisyear { get; set; }
+        public double EPSgrowththisyear { get; set; }
         [ElasticProperty(Name = "EPS growth quarter over quarter")]
         [JsonProperty("EPS growth quarter over quarter")]
-        public float EPSgrowthquarteroverquarter { get; set; }
+        public double EPSgrowthquarteroverquarter { get; set; }
         [ElasticProperty(Name = "Return on Equity")]
         [JsonProperty("Return on Equity")]
-        public float ReturnonEquity { get; set; }
+        public double ReturnonEquity { get; set; }
         [ElasticProperty(Name = "Change")]
         [JsonProperty("Change")]
-        public float Change { get; set; }
+        public double Change { get; set; }
         [ElasticProperty(Name = "Performance (Month)")]
         [JsonProperty("Performance (Month)")]
-        public float PerformanceMonth { get; set; }
+        public double PerformanceMonth { get; set; }
         [ElasticProperty(Name = "PEG")]
         [JsonProperty("PEG")]
-        public float PEG { get; set; }
+        public double PEG { get; set; }
         [ElasticProperty(Name = "Dividend Yield")]
         [JsonProperty("Dividend Yield")]
-        public float DividendYield { get; set; }
+        public double DividendYield { get; set; }
         [ElasticProperty(Name = "Insider Ownership")]
         [JsonProperty("Insider Ownership")]
-        public float InsiderOwnership { get; set; }
+        public double InsiderOwnership { get; set; }
         [ElasticProperty(Name = "Performance (Quarter)")]
         [JsonProperty("Performance (Quarter)")]
-        public float PerformanceQuarter { get; set; }
+        public double PerformanceQuarter { get; set; }
         [ElasticProperty(Name = "Insider Transactions")]
         [JsonProperty("Insider Transactions")]
-        public float InsiderTransactions { get; set; }
+        public double InsiderTransactions { get; set; }
     }
 
     public class EarningsDate
