@@ -15,7 +15,8 @@ namespace WebApplicationMongoDB.View
         protected void Page_Load(object sender, EventArgs e)
         {
             int i=1;
-            foreach (WebApplicationMongoDB.Stockobject obj in elastic.SearchRequestToES(srchIpt.Value))
+            content.Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
+            foreach (Stockobject obj in elastic.SearchRequestToES(srchIpt.Value))
             {
                 Panel pnlC = new Panel();
                 pnlC.Attributes["class"] = "panel-body";
@@ -36,6 +37,13 @@ namespace WebApplicationMongoDB.View
                     //containerStock.Controls.Add(elastic.createPopUp(obj));
                     containerStock.Controls.Add(pnlP);
                 }
+               if(i==1)
+               {
+                   content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
+               }
+                    //content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
+                   
+              
                 i++;
             }
             Button btnB = new Button();
@@ -46,7 +54,7 @@ namespace WebApplicationMongoDB.View
             btnS.Text = "Delete";
             ModalPopupExtender1.TargetControlID = "btn1";
 
-            content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
+            
             content.Controls.Add(btnS);
             content.Controls.Add(btnB);
             
@@ -224,6 +232,7 @@ namespace WebApplicationMongoDB.View
             tbl.Controls.Add(row2);
 
             tbl.Attributes["class"] = "tableInpt";
+            tbl.ID = "tableInpt";
             return tbl;
         }
 
