@@ -21,15 +21,19 @@ namespace WebApplicationMongoDB.View
             Dictionary<int, AjaxControlToolkit.ModalPopupExtender> dctMdl = new Dictionary<int, AjaxControlToolkit.ModalPopupExtender>();
             dctPnl.Add(1,content);
             dctPnl.Add(2,content2);
+            dctPnl.Add(3, content3);
+            dctPnl.Add(4, content4);
             dctMdl.Add(1, ModalPopupExtender1);
             dctMdl.Add(2, ModalPopupExtender2);
+            dctMdl.Add(3, ModalPopupExtender3);
+            dctMdl.Add(4, ModalPopupExtender4);
 
             //mdc.LoadLocalData(@"Z:\Downloads\stocks-2.json");
             mdc.mapReduceIndustryCountry("France");
             int i=1;
             Task t = Task.Run(() =>
             {
-                for (i = 1; i <= 2; i++)
+                for (i = 1; i <= 4; i++)
                 {
                     try
                     {
@@ -71,7 +75,7 @@ namespace WebApplicationMongoDB.View
                 i++;
             }
            
-            for (i = 1; i <= 2; i++)
+            for (i = 1; i <= 4; i++)
             {
                 try
                 {
@@ -92,26 +96,6 @@ namespace WebApplicationMongoDB.View
                 dctPnl[i].Controls.Add(btnS);
                 dctPnl[i].Controls.Add(btnB);
             }
-            //try
-            //{
-            //    content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
-            //    ModalPopupExtender1.TargetControlID = "btn1";
-            //}
-            //catch (Exception ex)
-            //{
-            //    ModalPopupExtender1.TargetControlID = "secour1";
-            //}
-            //try
-            //{
-            //    content2.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[1]));
-            //    ModalPopupExtender2.TargetControlID = "btn2";
-            //}
-            //catch (Exception ex)
-            //{
-            //    ModalPopupExtender2.TargetControlID = "secour2";
-            //}
-            
-            
             
         }
 
