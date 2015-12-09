@@ -81,7 +81,7 @@ namespace WebApplicationMongoDB.Controller
             using (var streamReader = new StreamReader(_path))
             {
                 string line;
-                while ((line =  streamReader.ReadLine()) != null)
+                while ((line = streamReader.ReadLine()) != null)
                 {
                     using (var jsonReader = new JsonReader(line))
                     {
@@ -92,24 +92,28 @@ namespace WebApplicationMongoDB.Controller
                 }
             }
         }
-
-        public List<Stockobject> mapReduceMarketCapCountry()
+        //5464654
+        public Dictionary<string, int> mapReduceMarketCapCountry()
         {
-            List<Stockobject> list = new List<Stockobject>();
-            //string map = @"function(){emit(this.Country, this['Market Cap'])}";
-            //string reduce = @"function(key, values){ return Array.sum(values)}";
-            //var result = collection.MapReduceAsync<BsonDocument>(map, reduce);
-            //foreach (var reslt in result.ToJson())
-            //{
-            //    System.Diagnostics.Debug.WriteLine(result.ToJson());
-            //}
-            var documents = collection.Find(new BsonDocument()).ToListAsync();
-            collection.Find(new BsonDocument()).ForEachAsync(d => System.Diagnostics.Debug.WriteLine(d));
-         
+            Dictionary<string, int> list = new Dictionary<string, int>();
+            List<BsonDocument> lis2 = new List<BsonDocument>();
+            string map = @"function(){emit(this.Country, this['Market Cap']);}";
+            string reduce = @"function(key, values){ return Array.sum(values);}";
+            var results = collection.MapReduceAsync<BsonDocument>(map, reduce).Result.ForEachAsync(document => list.Add(document.GetValue("_id").ToString(), Convert.ToInt32(document.GetValue("value"))));
+
             return list;
         }
 
+        public Dictionary<string, int> mapReduceIndustryCountry(string _country)
+        {
+            Dictionary<string, int> list = new Dictionary<string, int>();
+            List<BsonDocument> lis2 = new List<BsonDocument>();
+            string map = @"function(){emit(this.Country, this['Market Cap']);}";
+            string reduce = @"function(key, values){ return Array.sum(values);}";
+            var results = collection.MapReduceAsync<BsonDocument>(map, reduce).Result.ForEachAsync(document => list.Add(document.GetValue("_id").ToString(), Convert.ToInt32(document.GetValue("value"))));
 
+            return list;
+        }
 
     }
 }
