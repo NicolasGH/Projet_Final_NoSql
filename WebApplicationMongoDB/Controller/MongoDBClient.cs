@@ -108,10 +108,15 @@ namespace WebApplicationMongoDB.Controller
         {
             Dictionary<string, int> list = new Dictionary<string, int>();
             List<BsonDocument> lis2 = new List<BsonDocument>();
-            string map = @"function(){emit(this.Country, this['Market Cap']);}";
-            string reduce = @"function(key, values){ return Array.sum(values);}";
+            string map = @"function(){if (this.Country == 'France') emit(this.Industry, 1);}";
+            string reduce = @"function(key, values){return Array.sum(values);}";
             var results = collection.MapReduceAsync<BsonDocument>(map, reduce).Result.ForEachAsync(document => list.Add(document.GetValue("_id").ToString(), Convert.ToInt32(document.GetValue("value"))));
-
+            foreach (KeyValuePair<string, int> pair in list)
+            {
+                System.Diagnostics.Debug.WriteLine("{0}, {1}",
+                pair.Key,
+                pair.Value);
+            }
             return list;
         }
 

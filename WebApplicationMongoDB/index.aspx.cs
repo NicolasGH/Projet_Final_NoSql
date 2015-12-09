@@ -22,7 +22,7 @@ namespace WebApplicationMongoDB.View
             dct.Add(2,content2);
           
             //mdc.LoadLocalData(@"Z:\Downloads\stocks-2.json");
-            mdc.mapReduceMarketCapCountry();
+            mdc.mapReduceIndustryCountry("France");
             int i=1;
             Task t = Task.Run(() =>
             {
