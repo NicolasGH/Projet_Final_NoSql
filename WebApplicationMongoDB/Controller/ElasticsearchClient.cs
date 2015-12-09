@@ -117,7 +117,6 @@ namespace WebApplicationMongoDB.Controller
 
         public Panel createPopUp(Stockobject obj)
         {
-          
             try
             {
                 Panel pnlP = new Panel();
@@ -155,18 +154,10 @@ namespace WebApplicationMongoDB.Controller
                 e.ToString();
                 return null;
             }
-              
-
-                 
-
-           
-
         }
 
         public Table createInputs(Stockobject  obj)
         {
-            
-
             Label lbl1 = new Label();
             lbl1.Attributes["class"] = "lblDetails";
             lbl1.Text = "EPS growth next 5 year";
@@ -349,14 +340,6 @@ namespace WebApplicationMongoDB.Controller
             //    }
             //    tbl.Rows.Add(row);
             //}
-
-            
-
-            
-
-            
-
-
                 return tbl;
         }
 
