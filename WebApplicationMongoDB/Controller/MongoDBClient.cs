@@ -18,6 +18,7 @@ namespace WebApplicationMongoDB.Controller
 
         public MongoDBClient(string _collection)
         {
+
             this.connectionString = "mongodb://groupeNoSql3:groupeNoSql3@ds055564.mongolab.com:55564/stockexchange";
             //mongo ds055564.mongolab.com:55564/stockexchange -u groupeNoSql3 -p groupeNoSql3
             client = new MongoClient(this.connectionString);
@@ -92,7 +93,6 @@ namespace WebApplicationMongoDB.Controller
                 }
             }
         }
-        //5464654
         public Dictionary<string, int> mapReduceMarketCapCountry()
         {
             Dictionary<string, int> list = new Dictionary<string, int>();
@@ -108,15 +108,9 @@ namespace WebApplicationMongoDB.Controller
         {
             Dictionary<string, int> list = new Dictionary<string, int>();
             List<BsonDocument> lis2 = new List<BsonDocument>();
-            string map = @"function(){if (this.Country == 'France') emit(this.Industry, 1);}";
+            string map = @"function(){if (this.Country == '"+_country+"') emit(this.Industry, 1);}";
             string reduce = @"function(key, values){return Array.sum(values);}";
             var results = collection.MapReduceAsync<BsonDocument>(map, reduce).Result.ForEachAsync(document => list.Add(document.GetValue("_id").ToString(), Convert.ToInt32(document.GetValue("value"))));
-            foreach (KeyValuePair<string, int> pair in list)
-            {
-                System.Diagnostics.Debug.WriteLine("{0}, {1}",
-                pair.Key,
-                pair.Value);
-            }
             return list;
         }
 
