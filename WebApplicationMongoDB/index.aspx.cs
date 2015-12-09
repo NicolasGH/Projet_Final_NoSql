@@ -165,6 +165,16 @@ namespace WebApplicationMongoDB.View
             inpt2.Attributes["class"] = "input";
             inpt2.Attributes["value"] = obj.Industry;
 
+            Label lbl3 = new Label();
+            lbl3.Attributes["class"] = "lblDetails";
+            lbl3.Text = "Volume";
+            HtmlGenericControl inpt3 = new HtmlGenericControl("input");
+            inpt3.Attributes["type"] = "text";
+            inpt3.Attributes["placeholder"] = "Volume";
+            inpt3.ID = "inpt3" + obj._id;
+            inpt3.Attributes["class"] = "input";
+            inpt3.Attributes["value"] = obj.Volume.ToString();
+
             Label lbl4 = new Label();
             lbl4.Attributes["class"] = "lblDetails";
             lbl4.Text = "Country";
@@ -195,6 +205,16 @@ namespace WebApplicationMongoDB.View
             inpt6.Attributes["class"] = "input";
             inpt6.Attributes["value"] = obj.Ticker.ToString();
 
+            Label lbl7 = new Label();
+            lbl7.Attributes["class"] = "lblDetails";
+            lbl7.Text = "Price";
+            HtmlGenericControl inpt7 = new HtmlGenericControl("input");
+            inpt7.Attributes["type"] = "text";
+            inpt7.Attributes["placeholder"] = "Price";
+            inpt7.ID = "inpt7" + obj._id;
+            inpt7.Attributes["class"] = "input";
+            inpt7.Attributes["value"] = obj.Price.ToString();
+
             Table tbl = new Table();
             TableRow row1 = new TableRow();
             TableCell cell11 = new TableCell();
@@ -204,6 +224,7 @@ namespace WebApplicationMongoDB.View
             cell12.Controls.Add(lbl2);
             row1.Controls.Add(cell12);
             TableCell cell13 = new TableCell();
+            cell13.Controls.Add(lbl3);
             row1.Controls.Add(cell13);
             TableCell cell14 = new TableCell();
             cell14.Controls.Add(lbl4);
@@ -215,7 +236,8 @@ namespace WebApplicationMongoDB.View
             cell16.Controls.Add(lbl6);
             row1.Controls.Add(cell16);
             TableCell cell17 = new TableCell();
-
+            cell17.Controls.Add(lbl7);
+            row1.Controls.Add(cell17);
 
             tbl.Controls.Add(row1);
 
@@ -227,7 +249,7 @@ namespace WebApplicationMongoDB.View
             cell22.Controls.Add(inpt2);
             row2.Controls.Add(cell22);
             TableCell cell23 = new TableCell();
-            //cell23.Controls.Add(inpt3);
+            cell23.Controls.Add(inpt3);
             row2.Controls.Add(cell23);
             TableCell cell24 = new TableCell();
             cell24.Controls.Add(inpt4);
@@ -238,6 +260,9 @@ namespace WebApplicationMongoDB.View
             TableCell cell26 = new TableCell();
             cell26.Controls.Add(inpt6);
             row2.Controls.Add(cell26);
+            TableCell cell27 = new TableCell();
+            cell27.Controls.Add(inpt7);
+            row2.Controls.Add(cell27);
 
             tbl.Controls.Add(row2);
 

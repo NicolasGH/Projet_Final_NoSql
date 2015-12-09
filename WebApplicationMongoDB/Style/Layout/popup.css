@@ -357,23 +357,27 @@ tbody > tr
 }
 
 .btn-popup {
-   margin: 10px 0 30px 10px;
+   margin: 30px 11px 30px 10px;
     font-weight:400;
     padding:8px;
     display:inline;
     text-transform: uppercase;
     float:right;
-    border:1px solid #337ab7;
+    border:none;
     letter-spacing:2px;
     cursor:pointer;
     -webkit-border-radius: 6px 6px 6px 6px;
     border-radius: 6px 6px 6px 6px;
-    color: #337ab7;
     opacity:0.8;
     filter:alpha(opacity:80);
     color:#fff;
-    border-color:#80BCA3!important;
     transition-delay:0.3s;
+}
+
+.btn-popup:hover{
+    transition-delay:0.3s;
+    opacity:0.5;
+    filter:alpha(opacity:50);
 }
 
 #pageInscription2 >.btn-popup:hover{
