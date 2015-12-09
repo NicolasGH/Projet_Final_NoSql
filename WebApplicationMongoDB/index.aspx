@@ -100,32 +100,30 @@
             <hr style="margin-bottom: 15px;" />
             <%--<form class="navbar-form navbar-left" role="search" style="margin: 2% 41%" runat="server">--%>
             <div class="form-group" style="width: 250px">
-                <input id="srchIpt" runat="server" type="text" class="form-control" placeholder="Search" onkeypress="searchfct" />
+                <input id="srchIpt" runat="server" type="text" class="form-control searchBar" placeholder="Search" onkeypress="searchfct" />
                 <asp:Button runat="server" OnClick="searchfct" Style="background: transparent; border: none !important;"></asp:Button>
             </div>
             <%--<button type="submit" class="btn btn-default">Submit</button>--%>
             <%-- </form>--%>
         </section>
 
-
-
         <section class="containerStock" id="containerStock" runat="server">
             <%--<form runat="server">--%>
-            <asp:Button runat="server" ID="seeMore" />
+            <%--<asp:Button runat="server" ID="seeMore" />--%>
             <asp:ScriptManager ID="ScriptManager1" runat="server">
             </asp:ScriptManager>
-            <%--<asp:Panel runat="server" ID="Panel1" CssClass="content">
-              <div id="content">
+       <asp:Panel runat="server" ID="Panel1" CssClass="content">
+           <div id="content" runat="server">
                   <h1>DETAILS</h1>
                   <a id="modalclosebutton3" class="modalclose">&#10006</a>
-                   <input type="text" placeholder="Nom de votre entreprise" name="compagnyName" data-error="#errNM5" />
               </div>
-            </asp:Panel>--%>
+            </asp:Panel>
             <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
-                TargetControlID="seeMore" PopupControlID="Panel1" CancelControlID="modalclosebutton3"
+                PopupControlID="Panel1" CancelControlID="modalclosebutton3"
                 PopupDragHandleControlID="PopupHeader" Drag="true" backgroundcssclass="ModalPopupBG">
             </cc1:ModalPopupExtender>
             <%--</form>--%>
+            
         </section >
         <section class="sct-contain" >
             <hr style="margin-bottom: 15px; margin-top: 4%" />

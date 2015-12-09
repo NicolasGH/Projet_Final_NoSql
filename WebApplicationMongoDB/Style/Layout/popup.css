@@ -356,6 +356,26 @@ tbody > tr
     filter:alpha(opacity:80);
 }
 
+.btn-popup {
+   margin: 10px 0 30px 10px;
+    font-weight:400;
+    padding:8px;
+    display:inline;
+    text-transform: uppercase;
+    float:right;
+    border:1px solid #337ab7;
+    letter-spacing:2px;
+    cursor:pointer;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    border-radius: 6px 6px 6px 6px;
+    color: #337ab7;
+    opacity:0.8;
+    filter:alpha(opacity:80);
+    color:#fff;
+    border-color:#80BCA3!important;
+    transition-delay:0.3s;
+}
+
 #pageInscription2 >.btn-popup:hover{
     text-decoration:none;
 }
@@ -393,12 +413,10 @@ tbody > tr
 
 
 .content{
-    height:500px;
     font-weight:300;
     padding:8px;
     display:inline;
     transition-delay:0.4s;
-    width:350px;
     background:#fff;
    -webkit-border-radius: 8px 8px 8px 8px;
     border-radius: 8px 8px 8px 8px;
@@ -406,6 +424,7 @@ tbody > tr
     border:1px solid rgba(51, 51, 51, 0.4);
 
 }
+
 
 .content h1{
     font-weight:300;
@@ -431,8 +450,8 @@ tbody > tr
 }
 
 .input{
-    margin: 0 0 20px 0;
-    width: 250px;
+   // display:inline-block;
+   
     height: 40px;
     -webkit-border-radius: 4px 4px 4px 4px;
     border-radius: 4px 4px 4px 4px;
@@ -445,6 +464,7 @@ tbody > tr
 }
 
 .lblDetails{
+    margin-left:20px;
     font-weight:300;
     font-size:10px;
     letter-spacing:2px;

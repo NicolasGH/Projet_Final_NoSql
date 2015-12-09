@@ -117,13 +117,10 @@ namespace WebApplicationMongoDB.Controller
         public Panel createPopUp(Stockobject obj)
         {
           
-
+            try
+            {
                 Panel pnlP = new Panel();
                 pnlP.Attributes["class"] = "poping";
-               // Button btnSeeMore = new Button();
-                //btnSeeMore.ID = "btn" + obj._id.ToString();
-               // ScriptManager sMgr = new ScriptManager();
-               // sMgr.ID = "ScriptManager" + obj._id.ToString();
                 Panel pnlS = new Panel();
                 pnlS.ID = "Panel" + obj._id.ToString();
                 pnlS.Attributes["class"] = "content";
@@ -137,21 +134,27 @@ namespace WebApplicationMongoDB.Controller
                 div.Controls.Add(a);
                 div.Controls.Add(createInputs(obj));
                 pnlS.Controls.Add(div);
-                HtmlGenericControl ModalPopupExtender = new HtmlGenericControl("cc1:ModalPopupExtender");
-                ModalPopupExtender.ID = "ModalPopupExtender" + obj._id.ToString();
-                ModalPopupExtender.Attributes["TargetControlID"] = "btn" + obj._id.ToString();
-                ModalPopupExtender.Attributes["PopupControlID"] = "Panel" + obj._id.ToString();
-                ModalPopupExtender.Attributes["CancelControlID"] = "modalclosebutton" + obj._id.ToString();
-                ModalPopupExtender.Attributes["PopupDragHandleControlID"] = "PopupHeader";
-                ModalPopupExtender.Attributes["Drag"] = "true";
-                ModalPopupExtender.Attributes["backgroundcssclass"] = "ModalPopupBG";
 
-               // pnlP.Controls.Add(btnSeeMore);
-               // pnlP.Controls.Add(sMgr);
+                AjaxControlToolkit.ModalPopupExtender modalPop = new AjaxControlToolkit.ModalPopupExtender();
+                modalPop.ID = "popUp" + obj._id.ToString();
+                modalPop.PopupControlID = "Panel" + obj._id.ToString();
+                modalPop.TargetControlID = "btn" + obj._id.ToString();
+                modalPop.DropShadow = true;
+                modalPop.BackgroundCssClass = "modalBackground";
+                modalPop.CancelControlID = "modalclosebutton" + obj._id.ToString();
+
+              
                 pnlP.Controls.Add(pnlS);
-                pnlP.Controls.Add(ModalPopupExtender);
+                pnlP.Controls.Add(modalPop);
 
                 return pnlP;
+            }
+            catch(Exception e)
+            {
+                e.ToString();
+                return null;
+            }
+              
 
                  
 
@@ -159,7 +162,7 @@ namespace WebApplicationMongoDB.Controller
 
         }
 
-        private Table createInputs(Stockobject obj)
+        public Table createInputs(Stockobject  obj)
         {
             
 
@@ -171,7 +174,7 @@ namespace WebApplicationMongoDB.Controller
             inpt1.Attributes["placeholder"] = "EPS growth next 5 year";
             inpt1.ID = "inpt1";
             inpt1.Attributes["class"] = "input";
-            inpt1.InnerText = obj.EPSgrowthnext5years.ToString();
+            inpt1.Attributes["value"] = obj.EPSgrowthnext5years.ToString();
 
             Label lbl2 = new Label();
             lbl2.Attributes["class"] = "lblDetails";
@@ -181,7 +184,7 @@ namespace WebApplicationMongoDB.Controller
             inpt2.Attributes["placeholder"] = "Company";
             inpt2.ID = "inpt2";
             inpt2.Attributes["class"] = "input";
-            inpt2.InnerText = obj.Company;
+            inpt2.Attributes["value"] = obj.Company;
 
             Label lbl3 = new Label();
             lbl3.Attributes["class"] = "lblDetails";
@@ -191,7 +194,7 @@ namespace WebApplicationMongoDB.Controller
             inpt3.Attributes["placeholder"] = "Current Ratio";
             inpt3.ID = "inpt3";
             inpt3.Attributes["class"] = "input";
-            inpt3.InnerText = obj.CurrentRatio.ToString();
+            inpt3.Attributes["value"] = obj.CurrentRatio.ToString();
 
             Label lbl4 = new Label();
             lbl4.Attributes["class"] = "lblDetails";
@@ -201,7 +204,7 @@ namespace WebApplicationMongoDB.Controller
             inpt4.Attributes["placeholder"] = "Payout Ratio";
             inpt4.ID = "inpt4";
             inpt4.Attributes["class"] = "input";
-            inpt4.InnerText = obj.PayoutRatio.ToString();
+            inpt4.Attributes["value"] = obj.PayoutRatio.ToString();
 
             Label lbl5 = new Label();
             lbl5.Attributes["class"] = "lblDetails";
@@ -211,7 +214,7 @@ namespace WebApplicationMongoDB.Controller
             inpt5.Attributes["placeholder"] = "Operating Margin";
             inpt5.ID = "inpt5";
             inpt5.Attributes["class"] = "input";
-            inpt5.InnerText = obj.OperatingMargin.ToString();
+            inpt5.Attributes["value"] = obj.OperatingMargin.ToString();
 
             Label lbl6 = new Label();
             lbl6.Attributes["class"] = "lblDetails";
@@ -221,47 +224,47 @@ namespace WebApplicationMongoDB.Controller
             inpt6.Attributes["placeholder"] = "Shares Float";
             inpt6.ID = "inpt6";
             inpt6.Attributes["class"] = "input";
-            inpt6.InnerText = obj.SharesFloat.ToString();
+            inpt6.Attributes["value"] = obj.SharesFloat.ToString();
 
-            Label lbl7 = new Label();
-            lbl7.Attributes["class"] = "lblDetails";
-            lbl7.Text = "P/Cash";
-            HtmlGenericControl inpt7 = new HtmlGenericControl("input");
-            inpt7.Attributes["type"] = "text";
-            inpt7.Attributes["placeholder"] = "P/Cash";
-            inpt7.ID = "inpt7";
-            inpt7.Attributes["class"] = "input";
-            inpt7.InnerText = obj.PCash.ToString();
+            //Label lbl7 = new Label();
+            //lbl7.Attributes["class"] = "lblDetails";
+            //lbl7.Text = "P/Cash";
+            //HtmlGenericControl inpt7 = new HtmlGenericControl("input");
+            //inpt7.Attributes["type"] = "text";
+            //inpt7.Attributes["placeholder"] = "P/Cash";
+            //inpt7.ID = "inpt7";
+            //inpt7.Attributes["class"] = "input";
+            //inpt7.Attributes["value"] = obj.PCash.ToString();
 
-            Label lbl8 = new Label();
-            lbl8.Attributes["class"] = "lblDetails";
-            lbl8.Text = "Institutional Transactions";
-            HtmlGenericControl inpt8 = new HtmlGenericControl("input");
-            inpt8.Attributes["type"] = "text";
-            inpt8.Attributes["placeholder"] = "Institutional Transactions";
-            inpt8.ID = "inpt8";
-            inpt8.Attributes["class"] = "input";
-            inpt8.InnerText = obj.InstitutionalTransactions.ToString();
+            //Label lbl8 = new Label();
+            //lbl8.Attributes["class"] = "lblDetails";
+            //lbl8.Text = "Institutional Transactions";
+            //HtmlGenericControl inpt8 = new HtmlGenericControl("input");
+            //inpt8.Attributes["type"] = "text";
+            //inpt8.Attributes["placeholder"] = "Institutional Transactions";
+            //inpt8.ID = "inpt8";
+            //inpt8.Attributes["class"] = "input";
+            //inpt8.Attributes["value"] = obj.InstitutionalTransactions.ToString();
 
-            Label lbl9 = new Label();
-            lbl9.Attributes["class"] = "lblDetails";
-            lbl9.Text = "Average True Range";
-            HtmlGenericControl inpt9 = new HtmlGenericControl("input");
-            inpt9.Attributes["type"] = "text";
-            inpt9.Attributes["placeholder"] = "Average True Range";
-            inpt9.ID = "inpt9";
-            inpt9.Attributes["class"] = "input";
-            inpt9.InnerText = obj.AverageTrueRange.ToString();
+            //Label lbl9 = new Label();
+            //lbl9.Attributes["class"] = "lblDetails";
+            //lbl9.Text = "Average True Range";
+            //HtmlGenericControl inpt9 = new HtmlGenericControl("input");
+            //inpt9.Attributes["type"] = "text";
+            //inpt9.Attributes["placeholder"] = "Average True Range";
+            //inpt9.ID = "inpt9";
+            //inpt9.Attributes["class"] = "input";
+            //inpt9.Attributes["value"] = obj.AverageTrueRange.ToString();
 
-            Label lbl10 = new Label();
-            lbl10.Attributes["class"] = "lblDetails";
-            lbl10.Text = "Performance (Half Year)";
-            HtmlGenericControl inpt10 = new HtmlGenericControl("input");
-            inpt10.Attributes["type"] = "text";
-            inpt10.Attributes["placeholder"] = "Performance (Half Year)";
-            inpt10.ID = "inpt10";
-            inpt10.Attributes["class"] = "input";
-            inpt10.InnerText = obj.PerformanceHalfYear.ToString();
+            //Label lbl10 = new Label();
+            //lbl10.Attributes["class"] = "lblDetails";
+            //lbl10.Text = "Performance (Half Year)";
+            //HtmlGenericControl inpt10 = new HtmlGenericControl("input");
+            //inpt10.Attributes["type"] = "text";
+            //inpt10.Attributes["placeholder"] = "Performance (Half Year)";
+            //inpt10.ID = "inpt10";
+            //inpt10.Attributes["class"] = "input";
+            //inpt10.Attributes["value"] = obj.PerformanceHalfYear.ToString();
 
             Table tbl = new Table();
             TableRow row1 = new TableRow();
@@ -284,52 +287,52 @@ namespace WebApplicationMongoDB.Controller
             cell16.Controls.Add(lbl6);
             row1.Controls.Add(cell16);
             TableCell cell17 = new TableCell();
-            cell17.Controls.Add(lbl7);
-            row1.Controls.Add(cell17);
-            TableCell cell18 = new TableCell();
-            cell18.Controls.Add(lbl8);
-            row1.Controls.Add(cell18);
-            TableCell cell19 = new TableCell();
-            cell19.Controls.Add(lbl9);
-            row1.Controls.Add(cell19);
-            TableCell cell110 = new TableCell();
-            cell110.Controls.Add(lbl10);
-            row1.Controls.Add(cell110);
+            //cell17.Controls.Add(lbl7);
+            //row1.Controls.Add(cell17);
+            //TableCell cell18 = new TableCell();
+            //cell18.Controls.Add(lbl8);
+            //row1.Controls.Add(cell18);
+            //TableCell cell19 = new TableCell();
+            //cell19.Controls.Add(lbl9);
+            //row1.Controls.Add(cell19);
+            //TableCell cell110 = new TableCell();
+            //cell110.Controls.Add(lbl10);
+            //row1.Controls.Add(cell110);
 
 
             tbl.Controls.Add(row1);
 
             TableRow row2 = new TableRow();
             TableCell cell21 = new TableCell();
-            cell21.Controls.Add(lbl1);
-            row1.Controls.Add(cell21);
+            cell21.Controls.Add(inpt1);
+            row2.Controls.Add(cell21);
             TableCell cell22 = new TableCell();
-            cell22.Controls.Add(lbl2);
-            row1.Controls.Add(cell22);
+            cell22.Controls.Add(inpt2);
+            row2.Controls.Add(cell22);
             TableCell cell23 = new TableCell();
-            cell23.Controls.Add(lbl3);
-            row1.Controls.Add(cell23);
+            cell23.Controls.Add(inpt3);
+            row2.Controls.Add(cell23);
             TableCell cell24 = new TableCell();
-            cell24.Controls.Add(lbl4);
-            row1.Controls.Add(cell24);
+            cell24.Controls.Add(inpt4);
+            row2.Controls.Add(cell24);
             TableCell cell25 = new TableCell();
-            cell25.Controls.Add(lbl5);
-            row1.Controls.Add(cell25);
+            cell25.Controls.Add(inpt5);
+            row2.Controls.Add(cell25);
             TableCell cell26 = new TableCell();
-            cell26.Controls.Add(lbl6);
-            row1.Controls.Add(cell26);
-            TableCell cell27 = new TableCell();
-            cell27.Controls.Add(lbl7);
-            row1.Controls.Add(cell27);
-            TableCell cell28 = new TableCell();
-            cell28.Controls.Add(lbl8);
-            row1.Controls.Add(cell28);
-            TableCell cell29 = new TableCell();
-            cell29.Controls.Add(lbl9);
-            row1.Controls.Add(cell29);
-            TableCell cell210 = new TableCell();
-            cell210.Controls.Add(lbl10);
-            row1.Controls.Add(cell210);
+            cell26.Controls.Add(inpt6);
+            row2.Controls.Add(cell26);
+            //TableCell cell27 = new TableCell();
+            //cell27.Controls.Add(inpt7);
+            //row2.Controls.Add(cell27);
+            //TableCell cell28 = new TableCell();
+            //cell28.Controls.Add(inpt8);
+            //row2.Controls.Add(cell28);
+            //TableCell cell29 = new TableCell();
+            //cell29.Controls.Add(inpt9);
+            //row2.Controls.Add(cell29);
+            //TableCell cell210 = new TableCell();
+            //cell210.Controls.Add(inpt10);
+            //row2.Controls.Add(cell210);
 
             tbl.Controls.Add(row2);
             //for (int i = 0; i <= 0; i++)

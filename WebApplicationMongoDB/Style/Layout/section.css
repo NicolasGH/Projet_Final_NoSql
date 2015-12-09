@@ -69,3 +69,12 @@ footer hr{
     display:list-item;
     text-align:center;
 }
+
+.searchBar{
+    margin:20px 450px -50px 450px!important;
+}
+@media only screen and (max-width:1000px) {
+    .searchBar{
+        margin:2%!important;
+    }
+}

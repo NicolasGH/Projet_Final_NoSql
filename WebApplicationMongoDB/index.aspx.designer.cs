@@ -40,15 +40,6 @@ namespace WebApplicationMongoDB.View {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl containerStock;
         
         /// <summary>
-        /// Contrôle seeMore.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button seeMore;
-        
-        /// <summary>
         /// Contrôle ScriptManager1.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,24 @@ namespace WebApplicationMongoDB.View {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// Contrôle Panel1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
+        /// Contrôle content.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl content;
         
         /// <summary>
         /// Contrôle ModalPopupExtender1.
