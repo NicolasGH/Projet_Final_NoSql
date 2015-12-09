@@ -26,7 +26,7 @@ namespace WebApplicationMongoDB.Controller
         public ElasticsearchClient()
         {
             this.connexion = new Uri("http://10.188.197.209:9200");
-  //          this.connexion = new Uri("http://localhost:9200");
+            this.connexion = new Uri("http://localhost:9200");
             this.settings = new ConnectionSettings(connexion, defaultIndex: "tp");
             this.client = new ElasticClient(settings);
             client.CreateIndex("tp");
@@ -65,7 +65,6 @@ namespace WebApplicationMongoDB.Controller
                     .Query(qs => qs.QueryString(q => q.Query(_textToSearch))));
 
                 return searchResults.Documents.ToList();
-
             }
             catch (Exception e)
             {
@@ -73,12 +72,5 @@ namespace WebApplicationMongoDB.Controller
                 return null;
             }
         }
-
-       
-
-
-        
-
-
     }
 }
