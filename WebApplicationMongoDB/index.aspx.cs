@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using WebApplicationMongoDB.Controller;
+using System.Threading.Tasks;
 
 namespace WebApplicationMongoDB.View
 {
@@ -16,29 +17,31 @@ namespace WebApplicationMongoDB.View
         protected void Page_Load(object sender, EventArgs e)
         {
             MongoDBClient mdc = new MongoDBClient("stockcollection");
-            
+            Dictionary<int, HtmlGenericControl> dct = new Dictionary<int, HtmlGenericControl>();
+            dct.Add(1,content);
+            dct.Add(2,content2);
+          
             //mdc.LoadLocalData(@"Z:\Downloads\stocks-2.json");
             mdc.mapReduceMarketCapCountry();
             int i=1;
-            
-            
+            Task t = Task.Run(() =>
+            {
+                for (i = 1; i <= 2; i++)
+                {
+                    try
+                    {
+                        dct[i].Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[i - 1]));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
 
-            try
-            {
-                content.Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            try
-            {
-                content2.Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[1]));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+                }
+            });
+            t.Wait();
+
+            i = 1;
   
             
             foreach (Stockobject obj in elastic.SearchRequestToES(srchIpt.Value))
