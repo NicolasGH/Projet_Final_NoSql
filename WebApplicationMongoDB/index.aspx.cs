@@ -22,6 +22,7 @@ namespace WebApplicationMongoDB.View
             int i=1;
             
             
+
             try
             {
                 content.Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
