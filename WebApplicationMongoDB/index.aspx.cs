@@ -18,7 +18,7 @@ namespace WebApplicationMongoDB.View
             MongoDBClient mdc = new MongoDBClient("stockcollection");
             
             //mdc.LoadLocalData(@"Z:\Downloads\stocks-2.json");
-            mdc.mapReduceMarketCapCountry();
+            mdc.mapReduceIndustryCountry("France");
             int i=1;
             
             
