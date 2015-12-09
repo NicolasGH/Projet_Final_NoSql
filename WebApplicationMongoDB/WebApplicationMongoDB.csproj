@@ -158,6 +158,7 @@
   <ItemGroup>
     <Compile Include="Controller\ElasticsearchClient.cs" />
     <Compile Include="Controller\MongoDBClient.cs" />
+    <Compile Include="Model\StockObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

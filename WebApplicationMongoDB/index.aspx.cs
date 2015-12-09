@@ -15,7 +15,7 @@ namespace WebApplicationMongoDB.View
         protected void Page_Load(object sender, EventArgs e)
         {
             int i=1;
-            foreach (WebApplicationMongoDB.Controller.ElasticsearchClient.Stockobject obj in elastic.findAll())
+            foreach (WebApplicationMongoDB.Stockobject obj in elastic.findAll())
             {
                 Panel pnlC = new Panel();
                 pnlC.Attributes["class"] = "panel-body";
@@ -57,7 +57,7 @@ namespace WebApplicationMongoDB.View
         {
             //containerStock.Controls.Remove(pnlP);
             int i = 1;
-            foreach (WebApplicationMongoDB.Controller.ElasticsearchClient.Stockobject obj in elastic.NavBar(srchIpt.Value))
+            foreach (WebApplicationMongoDB.Stockobject obj in elastic.NavBar(srchIpt.Value))
             {
                 Panel pnlC = new Panel();
                 pnlC.Attributes["class"] = "panel-body";
