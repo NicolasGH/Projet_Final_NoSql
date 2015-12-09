@@ -21,15 +21,18 @@ namespace WebApplicationMongoDB.Controller
 {
     public class MongoDBClient
     {
-        protected static IMongoClient _client;
+        protected IMongoClient client;
         protected string connectionString;
-        protected static IMongoDatabase _database;
+        protected IMongoDatabase database;
+        protected IMongoCollection<BsonDocument> collection;
 
         public MongoDBClient()
         {
             this.connectionString = "mongodb://groupeNoSql3:groupeNoSql3@ds055564.mongolab.com:55564/stockexchange";
-            _client = new MongoClient(this.connectionString);
-            _database = _client.GetDatabase("stockexchange");
+            //mongo ds055564.mongolab.com:55564/stockexchange -u groupeNoSql3 -p groupeNoSql3
+            client = new MongoClient(this.connectionString);
+            database = client.GetDatabase("stockexchange");
+            IMongoCollection<BsonDocument> collection = database.GetCollection<BsonDocument>("stockcollection");
         }
 
         public void insertData(Stockobject obj)
@@ -37,7 +40,6 @@ namespace WebApplicationMongoDB.Controller
             try
             {
                 JavaScriptSerializer ser = new JavaScriptSerializer();
-                var collection = _database.GetCollection<BsonDocument>("stockCollection");
                 string str = ser.Serialize(obj);
                 BsonDocument bson = BsonDocument.Parse(str);
                 collection.InsertOneAsync(bson);
@@ -49,12 +51,12 @@ namespace WebApplicationMongoDB.Controller
         }
 
 
-        public void updateData(Stockobject obj)
+        public void updateData(Stockobject obj,string _collection)
         {
             try
             {
                 JavaScriptSerializer ser = new JavaScriptSerializer();
-                var collection = _database.GetCollection<BsonDocument>("stockCollection");
+                var collection = database.GetCollection<BsonDocument>(_collection);
                 var filter = Builders<BsonDocument>.Filter.Eq("Ticker", obj.Ticker);
                 string str = ser.Serialize(obj);
                 BsonDocument bson = BsonDocument.Parse(str);
@@ -70,7 +72,7 @@ namespace WebApplicationMongoDB.Controller
         {
             try
             {
-                var collection = _database.GetCollection<BsonDocument>("stockCollection");
+                var collection = database.GetCollection<BsonDocument>("stockCollection");
                 var filter = Builders<BsonDocument>.Filter.Eq("Ticker", obj.Ticker);
                 collection.DeleteOneAsync(filter);
             }
@@ -80,18 +82,17 @@ namespace WebApplicationMongoDB.Controller
             }
         }
 
-        public void LoadLocalData()
+        public void LoadLocalData(string _path, string _collection)
         {
             try
             {
-                StreamReader file = new StreamReader("stocks.json");
-                var collection = _database.GetCollection<Stockobject>("stockCollection");
+                StreamReader file = new StreamReader(_path);
+                var collection = database.GetCollection<Stockobject>(_collection);
 
                 while (file.ReadLine() != null)
                 {
                     try
                     {
-
                         string line = file.ReadLine();
                         JObject json = JObject.Parse(line);
                         Stockobject obj = JsonConvert.DeserializeObject<Stockobject>(line);
