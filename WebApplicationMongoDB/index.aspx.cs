@@ -17,10 +17,13 @@ namespace WebApplicationMongoDB.View
         protected void Page_Load(object sender, EventArgs e)
         {
             MongoDBClient mdc = new MongoDBClient("stockcollection");
-            Dictionary<int, HtmlGenericControl> dct = new Dictionary<int, HtmlGenericControl>();
-            dct.Add(1,content);
-            dct.Add(2,content2);
-          
+            Dictionary<int, HtmlGenericControl> dctPnl = new Dictionary<int, HtmlGenericControl>();
+            Dictionary<int, AjaxControlToolkit.ModalPopupExtender> dctMdl = new Dictionary<int, AjaxControlToolkit.ModalPopupExtender>();
+            dctPnl.Add(1,content);
+            dctPnl.Add(2,content2);
+            dctMdl.Add(1, ModalPopupExtender1);
+            dctMdl.Add(2, ModalPopupExtender2);
+
             //mdc.LoadLocalData(@"Z:\Downloads\stocks-2.json");
             mdc.mapReduceIndustryCountry("France");
             int i=1;
@@ -30,7 +33,7 @@ namespace WebApplicationMongoDB.View
                 {
                     try
                     {
-                        dct[i].Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[i - 1]));
+                        dctPnl[i].Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[i - 1]));
                     }
                     catch (Exception ex)
                     {
@@ -67,36 +70,47 @@ namespace WebApplicationMongoDB.View
                 }
                 i++;
             }
-            Button btnB = new Button();
-            btnB.Attributes["class"] = "btn-popup";
-            btnB.Text = "Update";
-            Button btnS = new Button();
-            btnS.Attributes["class"] = "btn-popup";
-            btnS.Text = "Delete";
-            
+           
+            for (i = 1; i <= 2; i++)
+            {
+                try
+                {
+                  dctPnl[i].Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[i-1]));
+                  dctMdl[i].TargetControlID = "btn" + i;
+                }
+                catch (Exception ex)
+                {
+                    dctMdl[i].TargetControlID = "secour1";
+                }
+                Button btnB = new Button();
+                btnB.Attributes["class"] = "btn-popup";
+                btnB.Text = "Update";
+                Button btnS = new Button();
+                btnS.Attributes["class"] = "btn-popup";
+                btnS.Text = "Delete";
 
-            try
-            {
-                content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
-                ModalPopupExtender1.TargetControlID = "btn1";
+                dctPnl[i].Controls.Add(btnS);
+                dctPnl[i].Controls.Add(btnB);
             }
-            catch (Exception ex)
-            {
-                ModalPopupExtender1.TargetControlID = "secour1";
-            }
-            try
-            {
-                content2.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[1]));
-                ModalPopupExtender2.TargetControlID = "btn2";
-            }
-            catch (Exception ex)
-            {
-                ModalPopupExtender2.TargetControlID = "secour2";
-            }
-            content.Controls.Add(btnS);
-            content.Controls.Add(btnB);
-            content2.Controls.Add(btnS);
-            content2.Controls.Add(btnB);
+            //try
+            //{
+            //    content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
+            //    ModalPopupExtender1.TargetControlID = "btn1";
+            //}
+            //catch (Exception ex)
+            //{
+            //    ModalPopupExtender1.TargetControlID = "secour1";
+            //}
+            //try
+            //{
+            //    content2.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[1]));
+            //    ModalPopupExtender2.TargetControlID = "btn2";
+            //}
+            //catch (Exception ex)
+            //{
+            //    ModalPopupExtender2.TargetControlID = "secour2";
+            //}
+            
             
             
         }
