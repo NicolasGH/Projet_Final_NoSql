@@ -15,7 +15,7 @@ namespace WebApplicationMongoDB.View
         protected void Page_Load(object sender, EventArgs e)
         {
             int i=1;
-            foreach (WebApplicationMongoDB.Stockobject obj in elastic.findAll())
+            foreach (WebApplicationMongoDB.Stockobject obj in elastic.SearchRequestToES(srchIpt.Value))
             {
                 Panel pnlC = new Panel();
                 pnlC.Attributes["class"] = "panel-body";
@@ -45,8 +45,8 @@ namespace WebApplicationMongoDB.View
             btnS.Attributes["class"] = "btn-popup";
             btnS.Text = "Delete";
             ModalPopupExtender1.TargetControlID = "btn1";
-            
-            content.Controls.Add(createInputs(elastic.findAll().ToList()[0]));
+
+            content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
             content.Controls.Add(btnS);
             content.Controls.Add(btnB);
             

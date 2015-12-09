@@ -450,8 +450,7 @@ tbody > tr
 }
 
 .input{
-   // display:inline-block;
-   
+   margin-left:10px;
     height: 40px;
     -webkit-border-radius: 4px 4px 4px 4px;
     border-radius: 4px 4px 4px 4px;
