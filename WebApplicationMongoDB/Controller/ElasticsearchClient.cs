@@ -25,8 +25,8 @@ namespace WebApplicationMongoDB.Controller
         private ElasticClient client;
         public ElasticsearchClient()
         {
-            this.connexion = new Uri("http://172.21.153.221:9200");
-            //this.connexion = new Uri("http://localhost:9200");
+  //          this.connexion = new Uri("http://172.21.153.221:9200");
+            this.connexion = new Uri("http://localhost:9200");
             this.settings = new ConnectionSettings(connexion, defaultIndex: "tp");
             this.client = new ElasticClient(settings);
             client.CreateIndex("tp");
@@ -530,9 +530,9 @@ namespace WebApplicationMongoDB.Controller
             [ElasticProperty(Name = "50-Day Low")]
             [JsonProperty("50-Day Low")]
             public float _50DayLow { get; set; }
-            [ElasticProperty(Name = "Earnings Date")]
-            [JsonProperty("Earnings Date")]
-            public string EarningsDate { get; set; }
+            //[ElasticProperty(Name = "Earnings Date")]
+            //[JsonProperty("Earnings Date")]
+            //public string EarningsDate { get; set; }
             [ElasticProperty(Name = "Sector")]
             [JsonProperty("Sector")]
             public string Sector { get; set; }
