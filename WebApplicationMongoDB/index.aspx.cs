@@ -16,15 +16,25 @@ namespace WebApplicationMongoDB.View
         protected void Page_Load(object sender, EventArgs e)
         {
             MongoDBClient mdc = new MongoDBClient("stockcollection");
+            
             //mdc.LoadLocalData(@"Z:\Downloads\stocks-2.json");
             mdc.mapReduceMarketCapCountry();
             int i=1;
+            
+            
             try
             {
                 content.Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            try
+            {
                 content2.Controls.Remove(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[1]));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
@@ -65,13 +75,19 @@ namespace WebApplicationMongoDB.View
             {
                 content.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[0]));
                 ModalPopupExtender1.TargetControlID = "btn1";
+            }
+            catch (Exception ex)
+            {
+                ModalPopupExtender1.TargetControlID = "secour1";
+            }
+            try
+            {
                 content2.Controls.Add(createInputs(elastic.SearchRequestToES(srchIpt.Value).ToList()[1]));
                 ModalPopupExtender2.TargetControlID = "btn2";
             }
             catch (Exception ex)
             {
-                ModalPopupExtender1.TargetControlID = "secour1";
-                ModalPopupExtender2.TargetControlID = "secour1";
+                ModalPopupExtender2.TargetControlID = "secour2";
             }
             content.Controls.Add(btnS);
             content.Controls.Add(btnB);
