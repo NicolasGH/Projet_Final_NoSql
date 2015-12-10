@@ -17,10 +17,10 @@ namespace WebApplicationMongoDB.View
         protected void Page_Load(object sender, EventArgs e)
         {
             MongoDBClient mdc = new MongoDBClient("stockcollection");
-            System.Diagnostics.Debug.WriteLine( (mdc.aggregateCountrySorted("France", "Price", true)).ElementAt(8).Company);
-            
+            System.Diagnostics.Debug.WriteLine( (mdc.aggregateCountryNumberOfIndustrySortedDesc("USA").ElementAt(0).ToString()));
 
-            Dictionary<int, HtmlGenericControl> dctPnl = new Dictionary<int, HtmlGenericControl>();
+
+            Dictionary <int, HtmlGenericControl> dctPnl = new Dictionary<int, HtmlGenericControl>();
             Dictionary<int, AjaxControlToolkit.ModalPopupExtender> dctMdl = new Dictionary<int, AjaxControlToolkit.ModalPopupExtender>();
             dctPnl.Add(1,content);
             dctPnl.Add(2,content2);

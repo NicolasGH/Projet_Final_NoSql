@@ -131,8 +131,21 @@ namespace WebApplicationMongoDB.Controller
                 list.Add(BsonSerializer.Deserialize<Stockobject>(bsd.ToJson()));
             }
             return list;
+        }
 
-
+        public Dictionary<string, int> aggregateCountryNumberOfIndustrySortedDesc(string _country) //Retourne les indices d'un pays donné trié par un champ par exemple le prix, le volume, market cap etc...
+        {
+            Dictionary<string, int> dictionnary = new Dictionary<string, int>();
+            var aggregate = collection.Aggregate()
+                                      .Match(new BsonDocument { { "Country", _country } })
+                                      .Group(new BsonDocument { { "_id", new BsonDocument { { "Industry", "$Industry" } } }, { "number", new BsonDocument { { "$sum", 1 } } } })
+                                      .Sort(new BsonDocument { { "number", -1 } }).ToListAsync().Result;
+            var jsonSettings = new JsonWriterSettings { OutputMode = JsonOutputMode.Strict };
+            foreach (BsonDocument bsd in aggregate)
+            {
+                dictionnary.Add(bsd.GetValue("_id").ToBsonDocument().GetValue("Industry").ToString(),Convert.ToInt32(bsd.GetValue("number")));
+            }
+            return dictionnary;
         }
 
     }
