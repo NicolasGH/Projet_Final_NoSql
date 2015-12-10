@@ -27,52 +27,27 @@
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox" id="carrousel">
                     <div class="item active">
 
-                        <img class="first-slide img" src="Image/bg.jpg" alt="First slide" style="width: 100%; height: 100%" />
+                        <img class="first-slide img" src="Image/collectingdi.png" alt="First slide" style="width: 100%; height: 100%" />
                         <div class="contain">
-                            <h1><span>Lorem</span> ipsum</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                            <p>Et quoniam mirari posse quosdam peregrinos </p>
-                            <div>
-                                <a class="btn-carrousel" style="transition-delay: 0.3s">Inscription</a>
-                            </div>
-                            <div>
-                                <a class="btn-carrousel" style="transition-delay: 0.3s">Connection</a>
-                            </div>
+                            <h1><span>elasticsearch</span> browser</h1>
+                            <p>Elasticsearch is used for a lot of different use cases: </p>
+                            <p>full text search, analytics store, auto completer, spell checker, alerting engine </p>
+                            
                         </div>
                     </div>
                     <div class="item">
-                        <img class="second-slide img" src="Image/Photo24.jpg" alt="Second slide" style="width: 100%; height: 100%" />
+                        <img class="second-slide img" src="Image/shutterstock_.png" alt="Second slide" style="width: 100%; height: 100%" />
                         <div class="contain">
-                            <h1><span>Lorem</span> ipsum</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                            <p>Et quoniam mirari posse quosdam peregrinos </p>
-                            <div>
-                                <a class="btn-carrousel" style="transition-delay: 0.3s">Inscription</a>
-                            </div>
-                            <div>
-                                <a class="btn-carrousel" style="transition-delay: 0.3s">Connection</a>
-                            </div>
+                            <h1><span>Mongodb</span> database</h1>
+                            <p>You need to Grow Big, your Data is Location Based, you Don't have a DBA</p>
+                            <p>MongoDB is great tool, that should be used in the right scenarios to gain unfair advantage in your market. </p>
                         </div>
                     </div>
-                    <div class="item">
-                        <img class="third-slide img" src="Image/bg.jpg" alt="Third slide" style="width: 100%; height: 100%" />
-                        <div class="contain">
-                            <h1><span>Lorem</span> ipsum</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                            <p>Et quoniam mirari posse quosdam peregrinos </p>
-                            <div>
-                                <a class="btn-carrousel" style="transition-delay: 0.3s">Inscription</a>
-                            </div>
-                            <div>
-                                <a class="btn-carrousel" style="transition-delay: 0.3s">Connection</a>
-                            </div>
-                        </div>
-                    </div>
+            
                 </div>
             </div>
         </header>
@@ -289,14 +264,11 @@
             <div class="col-lg-4 footer">
                 <h4>Navigation</h4>
                 <a href="#header" style="text-decoration: none!important">Acceuil</a>
-                <a>Contact</a>
-                <a>Inscription</a>
-                <a>Connection</a>
             </div>
             <div class="col-lg-4 footer">
-                <h4>Lorem</h4>
-                <a href="#article2" style="text-decoration: none!important">Lorem ipsum</a>
-                <a href="#article3" style="text-decoration: none!important">Lorem ispum</a>
+                <h4>Articles</h4>
+                <a href="#article2" style="text-decoration: none!important">Industrie by country</a>
+                <a href="#article3" style="text-decoration: none!important">Market cap by country</a>
                 <a href="#social" style="text-decoration: none!important">Lorem ispul</a>
             </div>
             <div class="col-lg-4 footer">

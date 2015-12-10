@@ -215,6 +215,16 @@ namespace WebApplicationMongoDB.View
             inpt7.Attributes["class"] = "input";
             inpt7.Attributes["value"] = obj.Price.ToString();
 
+            Label lbl8 = new Label();
+            lbl8.Attributes["class"] = "lblDetails";
+            lbl8.Text = "Volatility (Month)";
+            HtmlGenericControl inpt8 = new HtmlGenericControl("input");
+            inpt8.Attributes["type"] = "text";
+            inpt8.Attributes["placeholder"] = "Volatility (Month)";
+            inpt8.ID = "inpt8" + obj._id;
+            inpt8.Attributes["class"] = "input";
+            inpt8.Attributes["value"] = obj.VolatilityMonth.ToString();
+
             Table tbl = new Table();
             TableRow row1 = new TableRow();
             TableCell cell11 = new TableCell();
@@ -229,15 +239,7 @@ namespace WebApplicationMongoDB.View
             TableCell cell14 = new TableCell();
             cell14.Controls.Add(lbl4);
             row1.Controls.Add(cell14);
-            TableCell cell15 = new TableCell();
-            cell15.Controls.Add(lbl5);
-            row1.Controls.Add(cell15);
-            TableCell cell16 = new TableCell();
-            cell16.Controls.Add(lbl6);
-            row1.Controls.Add(cell16);
-            TableCell cell17 = new TableCell();
-            cell17.Controls.Add(lbl7);
-            row1.Controls.Add(cell17);
+            
 
             tbl.Controls.Add(row1);
 
@@ -254,17 +256,43 @@ namespace WebApplicationMongoDB.View
             TableCell cell24 = new TableCell();
             cell24.Controls.Add(inpt4);
             row2.Controls.Add(cell24);
-            TableCell cell25 = new TableCell();
-            cell25.Controls.Add(inpt5);
-            row2.Controls.Add(cell25);
-            TableCell cell26 = new TableCell();
-            cell26.Controls.Add(inpt6);
-            row2.Controls.Add(cell26);
-            TableCell cell27 = new TableCell();
-            cell27.Controls.Add(inpt7);
-            row2.Controls.Add(cell27);
 
             tbl.Controls.Add(row2);
+
+
+            TableRow row3 = new TableRow();
+
+            TableCell cell15 = new TableCell();
+            cell15.Controls.Add(lbl5);
+            row3.Controls.Add(cell15);
+            TableCell cell16 = new TableCell();
+            cell16.Controls.Add(lbl6);
+            row3.Controls.Add(cell16);
+            TableCell cell17 = new TableCell();
+            cell17.Controls.Add(lbl7);
+            row3.Controls.Add(cell17);
+            TableCell cell18 = new TableCell();
+            cell18.Controls.Add(lbl8);
+            row3.Controls.Add(cell18);
+
+            tbl.Controls.Add(row3);
+
+            TableRow row4 = new TableRow();
+
+            TableCell cell25 = new TableCell();
+            cell25.Controls.Add(inpt5);
+            row4.Controls.Add(cell25);
+            TableCell cell26 = new TableCell();
+            cell26.Controls.Add(inpt6);
+            row4.Controls.Add(cell26);
+            TableCell cell27 = new TableCell();
+            cell27.Controls.Add(inpt7);
+            row4.Controls.Add(cell27);
+            TableCell cell28 = new TableCell();
+            cell28.Controls.Add(inpt8);
+            row4.Controls.Add(cell28);
+
+            tbl.Controls.Add(row4);
 
             tbl.Attributes["class"] = "tableInpt";
             return tbl;

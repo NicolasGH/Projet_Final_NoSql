@@ -177,6 +177,11 @@ article > .col-lg-4{
     filter:alpha(opacity:5);
 }
 
+.contain p
+{
+    font-weight:400!important;
+}
+
 
 /*Pop up*/
 .ModalPopupBG
