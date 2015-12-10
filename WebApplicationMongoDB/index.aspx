@@ -79,16 +79,16 @@
         <section class="sct-contain">
             <article class="row" style="text-align: center;" id="article1">
                 <div class="col-lg-4">
-                    <img src="Image/icon/phone-72-64.png" />
-                    <h3>Lorem ipsum</h3>
-                    <p>Sed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias...</p>
-                    <a class="yellow" href="#article2" style="text-decoration: none!important">En savoir plus &raquo;</a>
+                    <img src="Image/icon/factory-64.png" />
+                    <h3>Industrie by country</h3>
+                    <p>You want to know which industries are the most succefful in your country, take a look at our mapreduce...</p>
+                    <a class="yellow" href="#article2" style="text-decoration: none!important">Learn more &raquo;</a>
                 </div>
                 <div class="col-lg-4">
-                    <img src="Image/icon/calendar-7-64.png" />
-                    <h3>Lorem ipsum</h3>
-                    <p>Sed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias...</p>
-                    <a class="green" href="#article3" style="text-decoration: none!important">En savoir plus &raquo;</a>
+                    <img src="Image/icon/bank-64.png" />
+                    <h3>Market cap by country</h3>
+                    <p>You want to know which countries has the biggest market cap, take a look at our second mapreduce fonction...</p>
+                    <a class="green" href="#article3" style="text-decoration: none!important">Learn more &raquo;</a>
                 </div>
                 <div class="col-lg-4">
                     <img src="Image/icon/clock-3-64 (1).png" />

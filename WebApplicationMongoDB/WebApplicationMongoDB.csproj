@@ -114,8 +114,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Image\icon\bank-64.png" />
     <Content Include="Image\icon\calendar-7-256 %281%29.png" />
     <Content Include="Image\icon\clock-3-256.png" />
+    <Content Include="Image\icon\factory-64.png" />
     <Content Include="Image\icon\phone-72-256 %281%29.png" />
     <Content Include="Image\social\facebook-4-48.png" />
     <Content Include="Image\social\linkedin-4-48.png" />
@@ -131,10 +133,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Image\bg.jpg" />
-    <Content Include="Image\icon\calendar-7-64.png" />
     <Content Include="Image\icon\clock-3-64 %281%29.png" />
     <Content Include="Image\icon\database-16.png" />
-    <Content Include="Image\icon\phone-72-64.png" />
     <Content Include="Image\logo.png" />
     <Content Include="Image\Photo24.jpg" />
     <Content Include="Image\social\facebook-4-32.png" />
