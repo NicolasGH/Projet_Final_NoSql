@@ -17,7 +17,7 @@ namespace WebApplicationMongoDB.View
         protected void Page_Load(object sender, EventArgs e)
         {
             MongoDBClient mdc = new MongoDBClient("stockcollection");
-            System.Diagnostics.Debug.WriteLine( (mdc.aggregateCountrySorted("France", "Price", true)).ElementAt(8).Company);
+           // System.Diagnostics.Debug.WriteLine( (mdc.aggregateCountrySorted("France", "Price", true)).ElementAt(8).Company);
             
 
             Dictionary<int, HtmlGenericControl> dctPnl = new Dictionary<int, HtmlGenericControl>();
