@@ -36,7 +36,7 @@
                             <h1><span>elasticsearch</span> browser</h1>
                             <p>Elasticsearch is used for a lot of different use cases: </p>
                             <p>full text search, analytics store, auto completer, spell checker, alerting engine </p>
-                            
+
                         </div>
                     </div>
                     <div class="item">
@@ -47,7 +47,7 @@
                             <p>MongoDB is great tool, that should be used in the right scenarios to gain unfair advantage in your market. </p>
                         </div>
                     </div>
-            
+
                 </div>
             </div>
         </header>
@@ -55,7 +55,7 @@
             <article class="row" style="text-align: center;" id="article1">
                 <div class="col-lg-4">
                     <img src="Image/icon/factory-64.png" />
-                    <h3>Industrie by country</h3>
+                    <h3>Industry by country</h3>
                     <p>You want to know which industries are the most succefful in your country, take a look at our mapreduce...</p>
                     <a class="yellow" href="#article2" style="text-decoration: none!important">Learn more &raquo;</a>
                 </div>
@@ -211,7 +211,7 @@
             <hr style="margin-top: 10px;" />
             <article id="article2">
                 <div class="article right">
-                    <h1 class="title">Lorem <span>ipsm</span></h1>
+                    <h1 class="title">Industry<span> country</span></h1>
                     <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
                     </h4>
                     <p>
@@ -221,7 +221,66 @@
 
                 </div>
                 <div class="pic pic-left">
-                    <img src="Image/icon/phone-72-256 (1).png" />
+                    <div class="dropdown">
+                        <div class="dropdown" style="margin:50% 50%">
+                            <button class="btn btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
+                                Country
+                             <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pre-scrollable" role="menu">
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                 <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                 <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                 <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                   <%-- <img src="Image/icon/phone-72-256 (1).png" />--%>
                 </div>
             </article>
             <hr style="clear: both;" />
@@ -290,7 +349,7 @@
     <%--<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>--%>
     <script src="Script/bootstrap/bootstrap.js"></script>
-    <script src="Script/bootstrap/bootstrap.js"></script>
+    <%--    <script src="Script/bootstrap/bootstrap.js"></script>--%>
     <script src="Script/main.js"></script>
     <script src="Script/validation.js"></script>
 </body>
