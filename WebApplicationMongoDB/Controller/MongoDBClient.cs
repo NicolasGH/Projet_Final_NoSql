@@ -20,61 +20,39 @@ namespace WebApplicationMongoDB.Controller
 
         public MongoDBClient(string _collection)
         {
-
             this.connectionString = "mongodb://groupeNoSql3:groupeNoSql3@ds055564.mongolab.com:55564/stockexchange";
             //mongo ds055564.mongolab.com:55564/stockexchange -u groupeNoSql3 -p groupeNoSql3
             client = new MongoClient(this.connectionString);
             database = client.GetDatabase("stockexchange");
             this.collection = database.GetCollection<BsonDocument>(_collection);
             if (this.collection == null) database.CreateCollectionAsync(_collection);
-
         }
 
         public void insertData(Stockobject obj)
         {
-            try
-            {
                 JavaScriptSerializer ser = new JavaScriptSerializer();
                 string str = ser.Serialize(obj);
                 BsonDocument bson = BsonDocument.Parse(str);
                 collection.InsertOneAsync(bson);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
         }
 
 
         public void updateData(Stockobject obj, string _collection)
         {
-            try
-            {
                 JavaScriptSerializer ser = new JavaScriptSerializer();
                 var collection = database.GetCollection<BsonDocument>(_collection);
                 var filter = Builders<BsonDocument>.Filter.Eq("Ticker", obj.Ticker);
                 string str = ser.Serialize(obj);
                 BsonDocument bson = BsonDocument.Parse(str);
                 collection.UpdateOneAsync(filter, str);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
+ 
         }
 
         public void deleteData(Stockobject obj)
         {
-            try
-            {
                 var collection = database.GetCollection<BsonDocument>("stockCollection");
                 var filter = Builders<BsonDocument>.Filter.Eq("Ticker", obj.Ticker);
                 collection.DeleteOneAsync(filter);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
         }
 
 
@@ -149,6 +127,25 @@ namespace WebApplicationMongoDB.Controller
         }
 
 
+<<<<<<< HEAD
        
+=======
+        public List<string> searchCountries()
+        {
+            List<string> list = new List<string>();
+            var aggregate = collection.Aggregate()
+                                      .Group(new BsonDocument { { "_id", "$Country" } })
+                                      .ToListAsync().Result;
+            var jsonSettings = new JsonWriterSettings { OutputMode = JsonOutputMode.Strict };
+            foreach (BsonDocument bsd in aggregate)
+            {
+                list.Add(bsd.GetValue("_id").ToString());
+            }
+            list.Sort();
+
+             return list;
+
+        }
+>>>>>>> 24c5686ecf140e87a9a068c5ffb2624c836ee307
     }
 }

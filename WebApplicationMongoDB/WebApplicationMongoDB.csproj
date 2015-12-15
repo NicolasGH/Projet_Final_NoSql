@@ -125,6 +125,7 @@
     <Content Include="Image\social\linkedin-4-48.png" />
     <Content Include="Image\social\twitter-4-48.png" />
     <Content Include="packages.config" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\MongoDBProject.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

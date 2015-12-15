@@ -25,8 +25,13 @@ namespace WebApplicationMongoDB.Controller
         private ElasticClient client;
         public ElasticsearchClient()
         {
+<<<<<<< HEAD
             //this.connexion = new Uri("http://10.188.197.209:9200");
             this.connexion = new Uri("http://localhost:9200");
+=======
+            this.connexion = new Uri("http://192.168.1.14:9200");
+           // this.connexion = new Uri("http://localhost:9200");
+>>>>>>> 24c5686ecf140e87a9a068c5ffb2624c836ee307
             this.settings = new ConnectionSettings(connexion, defaultIndex: "tp");
             this.client = new ElasticClient(settings);
             client.CreateIndex("tp");
