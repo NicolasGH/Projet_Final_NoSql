@@ -65,12 +65,12 @@
                     <p>You want to know which countries has the biggest market cap, take a look at our second mapreduce fonction...</p>
                     <a class="green" href="#article3" style="text-decoration: none!important">Learn more &raquo;</a>
                 </div>
-                <div class="col-lg-4">
+              <%--  <div class="col-lg-4">
                     <img src="Image/icon/clock-3-64 (1).png" />
                     <h3>Lorem ipsum</h3>
                     <p>Sed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias...</p>
                     <a class="orange" href="#social" style="text-decoration: none!important">En savoir plus &raquo;</a>
-                </div>
+                </div>--%>
             </article>
             <hr style="margin-bottom: 15px;" />
             <%--<form class="navbar-form navbar-left" role="search" style="margin: 2% 41%" runat="server">--%>
@@ -212,13 +212,8 @@
             <article id="article2">
                 <div class="article right">
                     <h1 class="title">Industry<span> country</span></h1>
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                    <h4>You want to know which industries are the most succefful in your country, take a look at our mapreduce
                     </h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-
                 </div>
                 <div class="pic pic-left">
                     <div class="dropdown">
@@ -230,29 +225,25 @@
                             <ul class="dropdown-menu pre-scrollable" role="menu" id="selectCountry" runat="server">
                                 
                             </ul>
+                            <label id="numberIndustries" runat="server"></label>
                         </div>
                     </div>
-                    
-                   <%-- <img src="Image/icon/phone-72-256 (1).png" />--%>
+                    <cc1:PieChart runat="server" ID="PieChart1"></cc1:PieChart>
                 </div>
             </article>
             <hr style="clear: both;" />
             <article id="article3">
                 <div class="article left">
-                    <h1 class="title">Lorem <span>ipsm</span></h1>
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                    <h1 class="title">Market <span>cap</span></h1>
+                    <h4>You want to know which countries has the biggest market cap, take a look at our second mapreduce fonction
                     </h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
                 </div>
                 <div class="pic pic-right">
-                    <img src="Image/icon/calendar-7-256 (1).png" />
+                     <cc1:PieChart runat="server" ID="PieChart2" ></cc1:PieChart>
                 </div>
             </article>
             <hr style="clear: both;" />
-            <article>
+       <%--     <article>
                 <div class="article right" id="social">
                     <h1 class="title">Lorem <span>ipsm</span></h1>
                     <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
@@ -264,9 +255,11 @@
 
                 </div>
                 <div class="pic pic-left">
-                    <img src="Image/icon/clock-3-256.png" />
+                    <cc1:PieChart runat="server" ID="PieChart2" Width="500px" ></cc1:PieChart>
                 </div>
-            </article>
+            </article>--%>
+
+         
 
         </section>
     </form>

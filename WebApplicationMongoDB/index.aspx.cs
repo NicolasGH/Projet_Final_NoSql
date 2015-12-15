@@ -8,11 +8,19 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using WebApplicationMongoDB.Controller;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Web.UI.DataVisualization.Charting;
+using System.IO;
+ 
 
 namespace WebApplicationMongoDB.View
 {
     public partial class index : System.Web.UI.Page
     {
+       
         protected WebApplicationMongoDB.Controller.ElasticsearchClient elastic = new Controller.ElasticsearchClient();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,13 +72,13 @@ namespace WebApplicationMongoDB.View
   
             foreach (Stockobject obj in elastic.SearchRequestToES(srchIpt.Value))
             {
-                Panel pnlC = new Panel();
+                System.Web.UI.WebControls.Panel pnlC = new System.Web.UI.WebControls.Panel();
                 pnlC.Attributes["class"] = "panel-body";
-                Button btn = new Button();
+                System.Web.UI.WebControls.Button btn = new System.Web.UI.WebControls.Button();
                 pnlC.ID = "btn" + i;
-                Panel pnlP = new Panel();
+                System.Web.UI.WebControls.Panel pnlP = new System.Web.UI.WebControls.Panel();
                 pnlP.Attributes["class"] = "panel panel-default panelStock";
-                Label lbl = new Label();
+                System.Web.UI.WebControls.Label lbl = new System.Web.UI.WebControls.Label();
                 lbl.Text = obj.Company;
                 pnlC.Controls.Add(lbl);
                 pnlP.Controls.Add(pnlC);
@@ -84,10 +92,10 @@ namespace WebApplicationMongoDB.View
            
             for (i = 1; i <= 10; i++)
             {
-                Button btnB = new Button();
+                System.Web.UI.WebControls.Button btnB = new System.Web.UI.WebControls.Button();
                 btnB.Attributes["class"] = "btn-popup";
                 btnB.Text = "Update";
-                Button btnS = new Button();
+                System.Web.UI.WebControls.Button btnS = new System.Web.UI.WebControls.Button();
                 btnS.Attributes["class"] = "btn-popup";
                 btnS.Text = "Delete";
                 try
@@ -122,7 +130,27 @@ namespace WebApplicationMongoDB.View
                 li.Controls.Add(a);
                 selectCountry.Controls.Add(li);
             }
-            // <li><a href="#">Action</a></li>
+
+            PieChart1.Attributes["PieLabelStyle"] = "Outside";
+            //PieChart1.Label = "#PERCENT{P2}";
+            foreach (KeyValuePair<string, int> entry in mdc.mapReduceIndustryCountry("Chile"))
+            {
+                PieChart1.PieChartValues.Add(new AjaxControlToolkit.PieChartValue
+                {
+                    Data = Convert.ToDecimal(entry.Value),
+                    Category = entry.Key
+                });
+            }
+
+            foreach (KeyValuePair<string, int> entry in mdc.mapReduceMarketCapCountry())
+            {
+                PieChart2.PieChartValues.Add(new AjaxControlToolkit.PieChartValue
+                {
+                    Data = Convert.ToDecimal(entry.Value),
+                    Category = entry.Key
+                });
+            }
+
             
         }
 
@@ -131,12 +159,12 @@ namespace WebApplicationMongoDB.View
             int i = 1;
             foreach (WebApplicationMongoDB.Stockobject obj in elastic.SearchRequestToES(srchIpt.Value))
             {
-                Panel pnlC = new Panel();
+                System.Web.UI.WebControls.Panel pnlC = new System.Web.UI.WebControls.Panel();
                 pnlC.Attributes["class"] = "panel-body";
                 pnlC.ID = "btn" + i;
-                Panel pnlP = new Panel();
+                System.Web.UI.WebControls.Panel pnlP = new System.Web.UI.WebControls.Panel();
                 pnlP.Attributes["class"] = "panel panel-default panelStock";
-                Label lbl = new Label();
+                System.Web.UI.WebControls.Label lbl = new System.Web.UI.WebControls.Label();
                 lbl.Text = obj.Company;
                 pnlC.Controls.Add(lbl);
                 pnlP.Controls.Add(pnlC);
@@ -144,13 +172,15 @@ namespace WebApplicationMongoDB.View
                 i++;
             } 
 
+            
+
         }
 
       
 
         public Table createInputs(Stockobject obj)
         {
-            Label lbl1 = new Label();
+            System.Web.UI.WebControls.Label lbl1 = new System.Web.UI.WebControls.Label();
             lbl1.Attributes["class"] = "lblDetails";
             lbl1.Text = "Company";
             HtmlGenericControl inpt1 = new HtmlGenericControl("input");
@@ -160,7 +190,7 @@ namespace WebApplicationMongoDB.View
             inpt1.Attributes["class"] = "input";
             inpt1.Attributes["value"] = obj.Company.ToString();
 
-            Label lbl2 = new Label();
+            System.Web.UI.WebControls.Label lbl2 = new System.Web.UI.WebControls.Label();
             lbl2.Attributes["class"] = "lblDetails";
             lbl2.Text = "Industry";
             HtmlGenericControl inpt2 = new HtmlGenericControl("input");
@@ -170,7 +200,7 @@ namespace WebApplicationMongoDB.View
             inpt2.Attributes["class"] = "input";
             inpt2.Attributes["value"] = obj.Industry;
 
-            Label lbl3 = new Label();
+            System.Web.UI.WebControls.Label lbl3 = new System.Web.UI.WebControls.Label();
             lbl3.Attributes["class"] = "lblDetails";
             lbl3.Text = "Volume";
             HtmlGenericControl inpt3 = new HtmlGenericControl("input");
@@ -180,7 +210,7 @@ namespace WebApplicationMongoDB.View
             inpt3.Attributes["class"] = "input";
             inpt3.Attributes["value"] = obj.Volume.ToString();
 
-            Label lbl4 = new Label();
+            System.Web.UI.WebControls.Label lbl4 = new System.Web.UI.WebControls.Label();
             lbl4.Attributes["class"] = "lblDetails";
             lbl4.Text = "Country";
             HtmlGenericControl inpt4 = new HtmlGenericControl("input");
@@ -190,7 +220,7 @@ namespace WebApplicationMongoDB.View
             inpt4.Attributes["class"] = "input";
             inpt4.Attributes["value"] = obj.Country.ToString();
 
-            Label lbl5 = new Label();
+            System.Web.UI.WebControls.Label lbl5 = new System.Web.UI.WebControls.Label();
             lbl5.Attributes["class"] = "lblDetails";
             lbl5.Text = "Sector";
             HtmlGenericControl inpt5 = new HtmlGenericControl("input");
@@ -200,7 +230,7 @@ namespace WebApplicationMongoDB.View
             inpt5.Attributes["class"] = "input";
             inpt5.Attributes["value"] = obj.Sector.ToString();
 
-            Label lbl6 = new Label();
+            System.Web.UI.WebControls.Label lbl6 = new System.Web.UI.WebControls.Label();
             lbl6.Attributes["class"] = "lblDetails";
             lbl6.Text = "Ticker";
             HtmlGenericControl inpt6 = new HtmlGenericControl("input");
@@ -210,7 +240,7 @@ namespace WebApplicationMongoDB.View
             inpt6.Attributes["class"] = "input";
             inpt6.Attributes["value"] = obj.Ticker.ToString();
 
-            Label lbl7 = new Label();
+            System.Web.UI.WebControls.Label lbl7 = new System.Web.UI.WebControls.Label();
             lbl7.Attributes["class"] = "lblDetails";
             lbl7.Text = "Price";
             HtmlGenericControl inpt7 = new HtmlGenericControl("input");
@@ -220,7 +250,7 @@ namespace WebApplicationMongoDB.View
             inpt7.Attributes["class"] = "input";
             inpt7.Attributes["value"] = obj.Price.ToString();
 
-            Label lbl8 = new Label();
+            System.Web.UI.WebControls.Label lbl8 = new System.Web.UI.WebControls.Label();
             lbl8.Attributes["class"] = "lblDetails";
             lbl8.Text = "Volatility (Month)";
             HtmlGenericControl inpt8 = new HtmlGenericControl("input");

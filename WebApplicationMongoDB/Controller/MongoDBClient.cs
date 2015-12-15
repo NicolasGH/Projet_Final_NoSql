@@ -55,8 +55,6 @@ namespace WebApplicationMongoDB.Controller
                 collection.DeleteOneAsync(filter);
         }
 
-
-
         public void LoadLocalData(string _path)
         {
             using (var streamReader = new StreamReader(_path))
