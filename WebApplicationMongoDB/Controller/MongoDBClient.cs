@@ -149,18 +149,24 @@ namespace WebApplicationMongoDB.Controller
         }
 
 
-        public void searchCountries()
+        public List<string> searchCountries()
         {
-            //var result = _database.GetCollection<Stockobject>("stockCollection").AsQueryable().Select(s => s.Country).Distinct().ToList();
-            //var collection = _database.GetCollection<Stockobject>("stockCollection");
-            //collection.DistinctAsync("", "Country");
-            //Console.WriteLine(result);
+            List<string> list = new List<string>();
+            var aggregate = collection.Aggregate()
+                                      .Group(new BsonDocument { { "_id", "$Country" } })
+                                      .ToListAsync().Result;
+            var jsonSettings = new JsonWriterSettings { OutputMode = JsonOutputMode.Strict };
+            foreach (BsonDocument bsd in aggregate)
+            {
+                list.Add(bsd.GetValue("_id").ToString());
+            }
+            list.Sort();
 
 
-            //     _database.RunCommandAsync({
-            //    "distinct": "stockCollection"
-            //    "key": "Country"
-            //});
+             return list;
+
+
+
 
         }
     }
