@@ -36,7 +36,6 @@ namespace WebApplicationMongoDB.Controller
                 collection.InsertOneAsync(bson);
         }
 
-
         public void updateData(Stockobject obj, string _collection)
         {
                 JavaScriptSerializer ser = new JavaScriptSerializer();
@@ -45,7 +44,6 @@ namespace WebApplicationMongoDB.Controller
                 string str = ser.Serialize(obj);
                 BsonDocument bson = BsonDocument.Parse(str);
                 collection.UpdateOneAsync(filter, str);
- 
         }
 
         public void deleteData(Stockobject obj)
@@ -54,9 +52,7 @@ namespace WebApplicationMongoDB.Controller
                 var filter = Builders<BsonDocument>.Filter.Eq("Ticker", obj.Ticker);
                 collection.DeleteOneAsync(filter);
         }
-
-
-
+        
         public void LoadLocalData(string _path)
         {
             using (var streamReader = new StreamReader(_path))
@@ -89,7 +85,7 @@ namespace WebApplicationMongoDB.Controller
             Dictionary<string, int> list = new Dictionary<string, int>();
             List<BsonDocument> lis2 = new List<BsonDocument>();
             string map = @"function(){if (this.Country == '" + _country + "') emit(this.Industry, 1);}";
-            string reduce = @"function(key, values){return Array.sum(values);}";
+            string reduce = @"function(key, values){return {Industry : values};}";
             var results = collection.MapReduceAsync<BsonDocument>(map, reduce).Result.ForEachAsync(document => list.Add(document.GetValue("_id").ToString(), Convert.ToInt32(document.GetValue("value"))));
             return list;
         }
@@ -125,8 +121,6 @@ namespace WebApplicationMongoDB.Controller
             }
             return dictionnary;
         }
-
-
 
         public List<string> searchCountries()
         {
