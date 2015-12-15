@@ -127,9 +127,7 @@ namespace WebApplicationMongoDB.Controller
         }
 
 
-<<<<<<< HEAD
-       
-=======
+
         public List<string> searchCountries()
         {
             List<string> list = new List<string>();
@@ -142,10 +140,7 @@ namespace WebApplicationMongoDB.Controller
                 list.Add(bsd.GetValue("_id").ToString());
             }
             list.Sort();
-
              return list;
-
         }
->>>>>>> 24c5686ecf140e87a9a068c5ffb2624c836ee307
     }
 }

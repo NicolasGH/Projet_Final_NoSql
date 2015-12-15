@@ -17,8 +17,6 @@ namespace WebApplicationMongoDB.View
         protected void Page_Load(object sender, EventArgs e)
         {
             MongoDBClient mdc = new MongoDBClient("stockcollection");
-            mdc.searchCountries();
-            
 
             Dictionary<int, HtmlGenericControl> dctPnl = new Dictionary<int, HtmlGenericControl>();
             Dictionary<int, AjaxControlToolkit.ModalPopupExtender> dctMdl = new Dictionary<int, AjaxControlToolkit.ModalPopupExtender>();
@@ -111,13 +109,20 @@ namespace WebApplicationMongoDB.View
                 {
                     dctMdl[i].TargetControlID = "secour1";
                 }
-                
-                
-                
-
                 dctPnl[i].Controls.Add(btnS);
                 dctPnl[i].Controls.Add(btnB);
             }
+            foreach(string str in mdc.searchCountries())
+            {
+
+                HtmlGenericControl li = new HtmlGenericControl("li");
+                HtmlGenericControl a = new HtmlGenericControl("a");
+                a.Attributes["href"] = "#";
+                a.InnerText = str;
+                li.Controls.Add(a);
+                selectCountry.Controls.Add(li);
+            }
+            // <li><a href="#">Action</a></li>
             
         }
 
