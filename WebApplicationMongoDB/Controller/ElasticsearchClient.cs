@@ -25,7 +25,7 @@ namespace WebApplicationMongoDB.Controller
         private ElasticClient client;
         public ElasticsearchClient()
         {
-           // this.connexion = new Uri("http://10.188.197.209:9200");
+            //this.connexion = new Uri("http://10.188.197.209:9200");
             this.connexion = new Uri("http://localhost:9200");
             this.settings = new ConnectionSettings(connexion, defaultIndex: "tp");
             this.client = new ElasticClient(settings);

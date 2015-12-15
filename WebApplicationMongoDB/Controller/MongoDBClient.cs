@@ -149,19 +149,6 @@ namespace WebApplicationMongoDB.Controller
         }
 
 
-        public void searchCountries()
-        {
-            //var result = _database.GetCollection<Stockobject>("stockCollection").AsQueryable().Select(s => s.Country).Distinct().ToList();
-            //var collection = _database.GetCollection<Stockobject>("stockCollection");
-            //collection.DistinctAsync("", "Country");
-            //Console.WriteLine(result);
-
-
-            //     _database.RunCommandAsync({
-            //    "distinct": "stockCollection"
-            //    "key": "Country"
-            //});
-
-        }
+       
     }
 }
